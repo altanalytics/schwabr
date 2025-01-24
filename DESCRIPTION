@@ -1,0 +1,32 @@
+Package: schwabr
+Type: Package
+Title: 'Schwab' API Interface for R
+Version: 0.1.0
+Author: Anthony Trevisan [aut, cre]
+Authors@R:
+    person(given = "Anthony",
+           family = "Trevisan",
+           role = c("aut", "cre"),
+           email = "tony@altanalyticsllc.com")
+Maintainer: Anthony Trevisan <tony@altanalyticsllc.com>
+URL: https://altanalytics.github.io/schwabr/
+BugReports: https://github.com/altanalytics/schwabr/issues
+Description: Use R to interface with the 'Charles Schwab' Trade API <https://developer.schwab.com/>.
+    Functions include authentication, trading, price requests, account information, and option 
+    chains. A user will need a Schwab brokerage account and Schwab Individual Developer app. See README 
+    for authentication process and examples.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    httr,
+    urltools (>= 1.7.3),
+    base64enc,
+    lubridate,
+    dplyr,
+    jsonlite,
+    magrittr,
+    methods
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat

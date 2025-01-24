@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^README\.html$
+^cran-comments\.md$
+^LICENSE\.md$
