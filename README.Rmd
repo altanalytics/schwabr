@@ -26,6 +26,8 @@ R package for the Charles Schwab trade API, facilitating authentication, trading
 
 *Please note: the Schwab Developer App takes a few days to be fully approved so start that process ASAP. You will not be able to login until the App is in "Ready to use" State.*
 
+There is another and similar R CRAN package: [charlesschwabapi](https://cran.r-project.org/package=charlesschwabapi). It seems similar in terms of functionality to this package. `Schwabr` was built because most of the functionality already existed in the deprecated TD Ameritrade R API called [rameritrade](https://altanalytics.github.io/rameritrade/index.html).
+
 ## Introduction
 
 Charles Schwab is one of many trading platforms that offer a trade API. They ported it over from TD Ameritrade, so users of that platform should be familiar with much of the components here. This package was built off of the CRAN package [schwabr](https://altanalytics.github.io/schwabr/index.html). Other platforms like Alpaca, TastyTrade, TradeStation, etc. may have more modern APIs, but they do not have the full breath and depth as a broker dealer like Schwab. This API does have a few limitations, obstacles:
@@ -69,7 +71,7 @@ devtools::install_github("altanalytics/schwabr")
 
 ## Authentication
 
-Initial authorization to aSchwab requires a 3 step authentication process. Once initial authorization is achieved, a refresh_token can by used to grant access for 7 days. After that, a manual login must be completed following steps 1-3. Below is a detailed summary of the entire process followed by code demonstrating the 3 step process. More can be found at the [Schwab site](https://developer.schwab.com) or the [Authentication Guide](https://developer.schwab.com/products/trader-api--individual/details/documentation/Retail%20Trader%20API%20Production). Details are also provided within the functions.
+Initial authorization to Schwab requires a 3 step authentication process. Once initial authorization is achieved, a refresh_token can by used to grant access for 7 days. After that, a manual login must be completed following steps 1-3. Below is a detailed summary of the entire process followed by code demonstrating the 3 step process. More can be found at the [Schwab site](https://developer.schwab.com) or the [Authentication Guide](https://developer.schwab.com/products/trader-api--individual/details/documentation/Retail%20Trader%20API%20Production). Details are also provided within the functions.
 
 1. Create a login and Register an App with the individual Developer account with [Schwab Developer](https://developer.schwab.com/products/trader-api--individual). This login is different than the login you use for your schwab accounts. 
 2. Create an app under Dashboard. The app serves as a middle layer between the brokerage account and API.

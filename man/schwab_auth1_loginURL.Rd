@@ -45,8 +45,8 @@ Docs} or see the examples in the Schwabr readme.
 # Once a successful log in is completed the landing page will be a blank page
 # The full URL of the landing page is the Authorization Code for schwab_auth2_refreshToken
 
-# This assumes you set the callback to https://127.0.0.1
-loginURL = schwab_auth1_loginURL(appKey, https://127.0.0.1)
+# This assumes you set the callback to 'https://127.0.0.1'
+loginURL = schwab_auth1_loginURL(appKey, 'https://127.0.0.1')
 
 }
 }

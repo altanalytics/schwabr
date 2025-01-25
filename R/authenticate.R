@@ -36,8 +36,8 @@
 #' # Once a successful log in is completed the landing page will be a blank page
 #' # The full URL of the landing page is the Authorization Code for schwab_auth2_refreshToken
 #'
-#' # This assumes you set the callback to https://127.0.0.1
-#' loginURL = schwab_auth1_loginURL(appKey, https://127.0.0.1)
+#' # This assumes you set the callback to 'https://127.0.0.1'
+#' loginURL = schwab_auth1_loginURL(appKey, 'https://127.0.0.1')
 #'
 #' }
 schwab_auth1_loginURL = function(appKey, callbackURL) {
@@ -103,7 +103,7 @@ schwab_auth1_loginURL = function(appKey, callbackURL) {
 #' # After a successful log in, the URL authorization code can be fed with a callbackURL
 #' tok = schwab_auth2_refreshToken(appKey = 'schwab_APP_KEY',
 #'                                appSecret = 'schwab_SECRET',
-#'                                callbackURL = https://127.0.0.1,
+#'                                callbackURL = 'https://127.0.0.1',
 #'                                codeToken = 'https://127.0.0.1?code=Auhtorizationcode')
 #'
 #'
@@ -190,15 +190,16 @@ schwab_auth3_accessToken = function(appKey, appSecret, refreshToken) {
 
 
   # Get default Access Token in environment if available
-  accessToken <- getOption("schwab_access_token")
+  accessTokenList <- getOption("schwab_access_token")
 
   # If default Access Token is not null and environment is interactive, check for expiration
-  if (!is.null(accessToken)) {
-
+  if (!is.null(accessTokenList)) {
+    if(accessTokenList$refresh_token == refreshToken){
     # If Access Token has not expired, ask if new Access Token should be generated if more than 5 minutes left
-    MinTillExp = round(as.numeric(accessToken$expireTime-Sys.time()),1)
-    if (MinTillExp>5) {
-      return(accessToken)
+      MinTillExp = round(as.numeric(accessTokenList$expireTime-Sys.time()),1)
+      if (MinTillExp>5) {
+        return(accessTokenList)
+      }
     }
   }
 

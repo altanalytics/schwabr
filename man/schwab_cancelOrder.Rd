@@ -7,7 +7,7 @@
 schwab_cancelOrder(orderId, account_number, accessTokenList = NULL)
 }
 \arguments{
-\item{orderId}{A valid Schawb Order ID}
+\item{orderId}{A valid Schwab Order ID}
 
 \item{account_number}{A schwab account number associated with the Access Token}
 

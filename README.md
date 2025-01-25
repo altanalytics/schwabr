@@ -20,6 +20,13 @@ Schwab developer app. See instructions below.
 approved so start that process ASAP. You will not be able to login until
 the App is in “Ready to use” State.*
 
+There is another and similar R CRAN package:
+[charlesschwabapi](https://cran.r-project.org/package=charlesschwabapi).
+It seems similar in terms of functionality to this package. `Schwabr`
+was built because most of the functionality already existed in the
+deprecated TD Ameritrade R API called
+[rameritrade](https://altanalytics.github.io/rameritrade/index.html).
+
 ## Introduction
 
 Charles Schwab is one of many trading platforms that offer a trade API.
@@ -85,7 +92,7 @@ devtools::install_github("altanalytics/schwabr")
 
 ## Authentication
 
-Initial authorization to aSchwab requires a 3 step authentication
+Initial authorization to Schwab requires a 3 step authentication
 process. Once initial authorization is achieved, a refresh_token can by
 used to grant access for 7 days. After that, a manual login must be
 completed following steps 1-3. Below is a detailed summary of the entire

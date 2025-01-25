@@ -93,9 +93,20 @@ schwab_act_hash = function(account_number = '', accessTokenList = NULL){
     return('')
   }
 
-  act_list = schwab_actDataDF('accountNumbers', account_number, accessTokenList)
-  account_number_hash = act_list$hashValue[act_list$accountNumber==account_number]
-  return(account_number_hash)
+  # Get access token from options if one is not passed
+  accessToken = schwab_accessToken(accessTokenList)
+
+  # Create URL specific to TD Brokerage Account and dataType
+  actURL = paste0('https://api.schwabapi.com/trader/v1/accounts/accountNumbers')
+
+  # Get account data using a valid accessToken
+  accountData <- httr::GET(actURL,schwab_headers(accessToken))
+  # Confirm status code of 200
+  schwab_status(accountData)
+  ret_val = httr::content(accountData)
+  ret_val <- Filter(function(x) x$accountNumber == account_number, ret_val)
+
+  return(ret_val[[1]]$hashValue)
 }
 
 
@@ -107,7 +118,7 @@ schwab_act_hash = function(account_number = '', accessTokenList = NULL){
 # ----------- Helper function
 # generate account data in list form
 schwab_actDataList = function(dataType=c('balances','positions','accountNumbers'),
-                              account_number_hash = NULL, accessTokenList=NULL) {
+                              account_number_hash = '', accessTokenList=NULL) {
 
   # Get access token from options if one is not passed
   accessToken = schwab_accessToken(accessTokenList)
@@ -131,9 +142,13 @@ schwab_actDataList = function(dataType=c('balances','positions','accountNumbers'
   accountData <- httr::GET(actURL,schwab_headers(accessToken))
   # Confirm status code of 200
   schwab_status(accountData)
+  ret_val = httr::content(accountData)
+  if(dataTypeURL == 'accountNumbers' & account_number_hash != ''){
+    ret_val <- Filter(function(x) x$hashValue == account_number_hash, ret_val)
+  }
 
   # Return Account Data
-  return(httr::content(accountData))
+  return(ret_val)
 
 }
 
@@ -141,39 +156,37 @@ schwab_actDataList = function(dataType=c('balances','positions','accountNumbers'
 # ----------- Helper function
 # generate account data in data frame form
 schwab_actDataDF = function(dataType=c('balances','positions','accountNumbers'),
-                            account_number_hash='', accessToken=NULL) {
+                            account_number_hash='', accessTokenList=NULL) {
 
   # Check Data Type
   if (missing(dataType)) dataType='balances'
 
   # Get Account Data in list form
-  actData = schwab_actDataList(dataType,account_number_hash,accessToken)
-
+  actData = schwab_actDataList(dataType,account_number_hash,accessTokenList)
+  if(!is.null(names(actData[1]))){
+    actData = list(actData)
+  }
   if (dataType=='positions') {
-
-    # Pull out account and position details
-    actOutput =  dplyr::bind_rows(lapply(actData, function(x) {
-      # Merge account details (x) with position details (y)
-      merge(x = data.frame(x$securitiesAccount)[,c(2,1,3:5)],
-            # y contains the position details
-            y = dplyr::bind_rows(lapply(x[[1]]$positions,data.frame)))
+      actOutput =  dplyr::bind_rows(lapply(actData, function(x) {
+        as.data.frame(x$positions)
       }))
-    actOutput = dplyr::as_tibble(actOutput)
+      actOutput = dplyr::as_tibble(actOutput)
   } else if(dataType == 'accountNumbers'){
     actOutput =  dplyr::bind_rows(lapply(actData, function(x) {
       as.data.frame(x)
     }))
     actOutput = dplyr::as_tibble(actOutput)
 
-
   } else {
 
     actOutput = dplyr::bind_rows(lapply(actData, function(x) {
       # Merge account details (x) with balance details (y)
-      merge(x = data.frame(x$securitiesAccount)[,c(2,1,3:5)],
-            # y contains the current cash balances
-            y = data.frame(x[[1]]$currentBalances))
-      }))
+      x$securitiesAccount$positions = NULL
+      merge(x = data.frame(x$securitiesAccount),
+            # y contains the position details
+            y = data.frame(x$aggregatedBalance))
+
+    }))
     actOutput = dplyr::as_tibble(actOutput)
   }
 

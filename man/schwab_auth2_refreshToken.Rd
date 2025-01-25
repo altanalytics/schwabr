@@ -52,7 +52,7 @@ in the future, but no set timeline.
 # After a successful log in, the URL authorization code can be fed with a callbackURL
 tok = schwab_auth2_refreshToken(appKey = 'schwab_APP_KEY',
                                appSecret = 'schwab_SECRET',
-                               callbackURL = https://127.0.0.1,
+                               callbackURL = 'https://127.0.0.1',
                                codeToken = 'https://127.0.0.1?code=Auhtorizationcode')
 
 

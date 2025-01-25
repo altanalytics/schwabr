@@ -3,7 +3,7 @@
 #' Pass an order ID and Account number to get details such as status, quantity,
 #' ticker, executions (if applicable), account, etc.
 #'
-#' @param orderId A valid Schawb Order ID
+#' @param orderId A valid Schwab Order ID
 #' @param account_number A schwab account number associated with the Access Token
 #'
 #' @inheritParams schwab_accountData
