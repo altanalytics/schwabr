@@ -190,8 +190,8 @@ schwab_quote_list = function(tickers = c('AAPL','SPY'), accessTokenList=NULL, in
 
   # Create URL for all the tickers
   quoteURL = base::paste0('https://api.schwabapi.com/marketdata/v1/quotes?symbols=',
-                          paste0(tickers, collapse = ','),'&indicative=',indicative)
-  quoteURL = toupper(urltools::url_encode(quoteURL))
+                          toupper(urltools::url_encode(paste0(tickers))),
+                          collapse = ',','&indicative=',indicative)
   quotes =  httr::GET(quoteURL,schwab_headers(accessToken))
 
   # Confirm status code of 200
