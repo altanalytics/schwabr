@@ -101,11 +101,12 @@ schwab_priceHistory = function(tickers=c('AAPL','MSFT'),startDate=Sys.Date()-30,
   if (missing(freq)) freq='daily'
 
   # Loop through all tickers and collapse into a single data frame
-  allTickers = dplyr::bind_rows(lapply(tickers,function(x) schwab_history_single(ticker = x,
-                                                                              startDate,
-                                                                              endDate,
-                                                                              freq,
-                                                                              accessTokenList=accessTokenList)))
+  allTickers = dplyr::bind_rows(lapply(tickers,function(x)
+                                schwab_history_single(ticker = toupper(urltools::url_encode(x)),
+                                                      startDate,
+                                                      endDate,
+                                                      freq,
+                                                      accessTokenList=accessTokenList)))
 
   # Return all tickers in a data frame
   allTickers
@@ -142,17 +143,17 @@ schwab_history_single = function(ticker='AAPL',startDate=Sys.Date()-30,endDate=S
   if (missing(freq)) freq='daily'
   startDateMS = as.character(as.numeric(lubridate::as_datetime(startDate, tz='America/New_York'))*1000)
   endDateMS = as.character(as.numeric(lubridate::as_datetime(endDate, tz='America/New_York'))*1000)
-
+  urlticker =  toupper(urltools::url_encode(ticker))
   # Set URL specific parameters
   if (freq=='daily') {
     # If daily, plug in ticker and date in numeric format
     PriceURL = paste0('https://api.schwabapi.com/marketdata/v1/pricehistory',
-                      '?symbol=',ticker,'&periodType=month&frequencyType=daily',
+                      '?symbol=',urlticker,'&periodType=month&frequencyType=daily',
                       '&startDate=',startDateMS,'&endDate=',endDateMS)
   } else {
     # If not daiy, pass frequency and date in numeric format
     PriceURL = paste0('https://api.schwabapi.com/marketdata/v1/pricehistory',
-                      '?symbol=',ticker,'&periodType=day&frequency=',gsub('min','',freq),
+                      '?symbol=',urlticker,'&periodType=day&frequency=',gsub('min','',freq),
                       '&startDate=',startDateMS,'&endDate=',endDateMS,
                       '&needExtendedHoursData=',extended_hours)
   }
@@ -189,7 +190,8 @@ schwab_quote_list = function(tickers = c('AAPL','SPY'), accessTokenList=NULL, in
 
   # Create URL for all the tickers
   quoteURL = base::paste0('https://api.schwabapi.com/marketdata/v1/quotes?symbols=',
-                          paste0(tickers, collapse = '%2C'),'&indicative=',indicative)
+                          paste0(tickers, collapse = ','),'&indicative=',indicative)
+  quoteURL = toupper(urltools::url_encode(quoteURL))
   quotes =  httr::GET(quoteURL,schwab_headers(accessToken))
 
   # Confirm status code of 200
