@@ -14,11 +14,11 @@
 R package for the Charles Schwab trade API, facilitating authentication,
 trading, price requests, account balances, positions, order history,
 option chains, and more. A user will need a Schwab Brokerage account and
-Schwab developer app. See instructions below.
+Schwab developer app. They also need to be Think or Swim enabled. See
+full instructions below.
 
 *Please note: the Schwab Developer App takes a few days to be fully
-approved so start that process ASAP. You will not be able to login until
-the App is in “Ready to use” State.*
+approved so start that process ASAP.*
 
 There is another and similar R CRAN package:
 [charlesschwabapi](https://cran.r-project.org/package=charlesschwabapi).
@@ -31,16 +31,14 @@ deprecated TD Ameritrade R API called
 
 Charles Schwab is one of many trading platforms that offer a trade API.
 They ported it over from TD Ameritrade, so users of that platform should
-be familiar with much of the components here. This package was built off
-of the CRAN package
-[schwabr](https://altanalytics.github.io/schwabr/index.html). Other
-platforms like Alpaca, TastyTrade, TradeStation, etc. may have more
-modern APIs, but they do not have the full breath and depth as a broker
-dealer like Schwab. This API does have a few limitations, obstacles:
+be familiar with much of the components here. Other platforms like
+Alpaca, TastyTrade, TradeStation, etc. may have more modern APIs, but
+they do not have the full breath and depth as a broker dealer like
+Schwab. This API does have a few limitations, obstacles:
 
-- A manual refresh must be made every 7 days
-  - I have heard this is being addressed
-  - In the meantime I have a Python script to automate this
+- A manual Authentication refresh must be made every 7 days
+  - Schwab has indicated they want to update this - no timeline yet
+  - In the meantime I have a Python script to automate the Auth process
 - Setting up an App is a bit tedious
 - Auth flow is convoluted
 - No fractional shares

@@ -33,30 +33,64 @@
 #' asList = schwab_accountData('list',account_number = '', accessTokenList)
 #'
 #' }
-schwab_accountData = function(output = 'df', account_number = '', accessTokenList = NULL) {
+schwab_accountData = function(output = 'df', account_number = '',
+                              value_pull = c('all','bal','pos','acts'), accessTokenList = NULL) {
 
   account_number_hash = schwab_act_hash(account_number, accessTokenList)
+  if (missing(value_pull)) value_pull='all'
+  value_pull = tolower(value_pull)
   # Use helper functions to generate a lists or data frames
   if (output != 'df') {
 
     # Create a list of each
-    bal = schwab_actDataList('balances', account_number_hash, accessTokenList)
-    pos = schwab_actDataList('positions', account_number_hash, accessTokenList)
-    nums = schwab_actDataList('accountNumbers', account_number_hash, accessTokenList)
+    if(value_pull %in% c('all','bal')){
+      bal = schwab_actDataList('balances', account_number_hash, accessTokenList)
+    } else {
+      bal = NULL
+    }
+
+    if(value_pull %in% c('all','pos')){
+      pos = schwab_actDataList('positions', account_number_hash, accessTokenList)
+    } else {
+      pos = NULL
+    }
+
+    if(value_pull %in% c('all','acts')){
+      acts = schwab_actDataList('accountNumbers', account_number_hash, accessTokenList)
+    } else {
+      acts = NULL
+    }
 
   } else {
 
-    # Create a data frame of each
-    bal = schwab_actDataDF('balances', account_number_hash, accessTokenList)
-    pos = schwab_actDataDF('positions', account_number_hash, accessTokenList)
-    nums = schwab_actDataDF('accountNumbers', account_number_hash, accessTokenList)
+    # Create a list of each
+    if(value_pull %in% c('all','bal')){
+      bal = schwab_actDataDF('balances', account_number_hash, accessTokenList)
+    } else {
+      bal = NULL
+    }
+
+    if(value_pull %in% c('all','pos')){
+      pos = schwab_actDataDF('positions', account_number_hash, accessTokenList)
+    } else {
+      pos = NULL
+    }
+
+    if(value_pull %in% c('all','acts')){
+      acts = schwab_actDataDF('accountNumbers', account_number_hash, accessTokenList)
+    } else {
+      acts = NULL
+    }
 
   }
 
   # Combine them into a list
-  Result = list(balances = bal, positions = pos, accounts = nums)
+  act_list = list(balances = bal, positions = pos, accounts = acts)
+  if(value_pull != 'all'){
+    act_list <- Filter(Negate(is.null), act_list)[[1]]
+  }
 
-  return(Result)
+  return(act_list)
 
 }
 
@@ -168,7 +202,7 @@ schwab_actDataDF = function(dataType=c('balances','positions','accountNumbers'),
   }
   if (dataType=='positions') {
       actOutput =  dplyr::bind_rows(lapply(actData, function(x) {
-        as.data.frame(x$positions)
+        as.data.frame(x$securitiesAccount$positions)
       }))
       actOutput = dplyr::as_tibble(actOutput)
   } else if(dataType == 'accountNumbers'){

@@ -219,7 +219,7 @@ schwab_auth3_accessToken = function(appKey, appSecret, refreshToken) {
 
   # Extract content and add expiration time to Access Token
   accessToken = httr::content(authresponse)
-  accessToken$expireTime = Sys.time() + lubridate::seconds(accessToken$expires_in) - lubridate::seconds(5)
+  accessToken$expireTime = Sys.time() + lubridate::seconds(as.numeric(accessToken$expires_in)-60)
   accessToken$createTime = Sys.time()
 
   # Set Access Token to a default option

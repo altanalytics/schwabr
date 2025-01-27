@@ -144,27 +144,29 @@ schwab_orderSearch = function(account_number, startDate = Sys.Date()-30, endDate
   OrderEnterFinal=NULL
     # Run a loop for each order within the account
     UnqOrdrs = httr::content(searchOrders)
-    for(ords in 1:length(UnqOrdrs)) {
+    if(length(UnqOrdrs)>0){
+      for(ords in 1:length(UnqOrdrs)) {
 
-      # Get the high level order details
-      OrdrDet = UnqOrdrs[[ords]]
-      OrdrDet$orderLegCollection = NULL
-      OrdrDet$orderActivityCollection = NULL
-      OrdrDet = data.frame(OrdrDet) %>% dplyr::rename(total_qty=quantity)
+        # Get the high level order details
+        OrdrDet = UnqOrdrs[[ords]]
+        OrdrDet$orderLegCollection = NULL
+        OrdrDet$orderActivityCollection = NULL
+        OrdrDet = data.frame(OrdrDet) %>% dplyr::rename(total_qty=quantity)
 
-      # Get the Entry details and merge with order details
-      OrdrEnter = UnqOrdrs[[ords]]
-      OrdrEnter = dplyr::bind_rows(lapply(OrdrEnter$orderLegCollection,data.frame))
-      OrdrEnter = merge(OrdrEnter,OrdrDet)
-      OrderEnterFinal = dplyr::bind_rows(OrderEnterFinal,OrdrEnter)
+        # Get the Entry details and merge with order details
+        OrdrEnter = UnqOrdrs[[ords]]
+        OrdrEnter = dplyr::bind_rows(lapply(OrdrEnter$orderLegCollection,data.frame))
+        OrdrEnter = merge(OrdrEnter,OrdrDet)
+        OrderEnterFinal = dplyr::bind_rows(OrderEnterFinal,OrdrEnter)
 
-      # Get execution details when available
-      OrdrExec = UnqOrdrs[[ords]]
-      OrdrExec = dplyr::bind_rows(lapply(OrdrExec$orderActivityCollection,data.frame))
-      OrdrEntDet = dplyr::select(OrdrEnter,accountId,orderId,instrument.symbol,instruction,total_qty,duration,orderType,instrument.cusip,
-                                 enteredTime)
-      OrdrExecAll = merge(OrdrEntDet,OrdrExec)
-      OrdrExecFinal = dplyr::bind_rows(OrdrExecFinal,OrdrExecAll)
+        # Get execution details when available
+        OrdrExec = UnqOrdrs[[ords]]
+        OrdrExec = dplyr::bind_rows(lapply(OrdrExec$orderActivityCollection,data.frame))
+        OrdrEntDet = dplyr::select(OrdrEnter,accountNumber,orderId,instrument.symbol,instruction,total_qty,filledQuantity,duration,orderType,instrument.cusip,
+                                   enteredTime)
+        OrdrExecAll = merge(OrdrEntDet,OrdrExec)
+        OrdrExecFinal = dplyr::bind_rows(OrdrExecFinal,OrdrExecAll)
+      }
     }
 
     # Combine all three outputs into a single list

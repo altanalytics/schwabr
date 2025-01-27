@@ -102,7 +102,7 @@ schwab_priceHistory = function(tickers=c('AAPL','MSFT'),startDate=Sys.Date()-30,
 
   # Loop through all tickers and collapse into a single data frame
   allTickers = dplyr::bind_rows(lapply(tickers,function(x)
-                                schwab_history_single(ticker = toupper(urltools::url_encode(x)),
+                                schwab_history_single(ticker = x,
                                                       startDate,
                                                       endDate,
                                                       freq,
@@ -190,8 +190,8 @@ schwab_quote_list = function(tickers = c('AAPL','SPY'), accessTokenList=NULL, in
 
   # Create URL for all the tickers
   quoteURL = base::paste0('https://api.schwabapi.com/marketdata/v1/quotes?symbols=',
-                          toupper(urltools::url_encode(paste0(tickers))),
-                          collapse = ',','&indicative=',indicative)
+                          toupper(urltools::url_encode(paste0(tickers,collapse = ','))),
+                          '&indicative=',indicative)
   quotes =  httr::GET(quoteURL,schwab_headers(accessToken))
 
   # Confirm status code of 200
@@ -210,7 +210,8 @@ schwab_quote_df = function(tickers = c('AAPL','SPY'),accessTokenList=NULL) {
 
   # Return data frame from list
   dplyr::bind_rows(lapply(quoteList,data.frame)) %>%
-    dplyr::as_tibble()
+    dplyr::as_tibble() %>%
+    mutate(quote_datetime = as_datetime(quote.tradeTime/1000, tz='America/New_York'))
 
 }
 
