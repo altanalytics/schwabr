@@ -200,9 +200,15 @@ schwab_actDataDF = function(dataType=c('balances','positions','accountNumbers'),
   if(!is.null(names(actData[1]))){
     actData = list(actData)
   }
+  actData[[1]]$securitiesAccount$positions
   if (dataType=='positions') {
       actOutput =  dplyr::bind_rows(lapply(actData, function(x) {
-        as.data.frame(x$securitiesAccount$positions)
+        act_dets = tibble(accountNumber = x$securitiesAccount$accountNumber)
+        merge(act_dets,
+        dplyr::bind_rows(lapply(x$securitiesAccount$positions, function(y) {
+          as.data.frame(y)
+        }
+        )))
       }))
       actOutput = dplyr::as_tibble(actOutput)
   } else if(dataType == 'accountNumbers'){
