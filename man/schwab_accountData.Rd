@@ -2,9 +2,14 @@
 % Please edit documentation in R/account.R
 \name{schwab_accountData}
 \alias{schwab_accountData}
-\title{Get account balances positions, and orders returned as a list}
+\title{Get account balances, positions, and account numbers returned as a list}
 \usage{
-schwab_accountData(output = "df", account_number = "", accessTokenList = NULL)
+schwab_accountData(
+  output = "df",
+  account_number = "",
+  value_pull = c("all", "bal", "pos", "acts"),
+  accessTokenList = NULL
+)
 }
 \arguments{
 \item{output}{Use 'df' for a list of 3 data frames containing balances,
@@ -12,6 +17,9 @@ positions, and orders. Otherwise the data will be returned as a list of
 lists}
 
 \item{account_number}{The account number as shown on Schwab}
+
+\item{value_pull}{Can be one of 'all','bal','pos','acts' depending on what you
+want to pull back}
 
 \item{accessTokenList}{A valid Access Token must be set using the output from
 \code{\link{schwab_auth3_accessToken}}. The most recent Access Token will be
@@ -25,7 +33,7 @@ Retrieves account data for all accounts linked to the Access Token or a specific
 }
 \details{
 The output will be either a list of three data frames or a list of three
-lists that contain balances, positions, and orders for Schwab accounts
+lists that contain balances, positions, and account numbers for Schwab accounts
 linked to the access token or specified. For historical orders, see
 \code{\link{schwab_orderSearch}}. The default is for a data frame output which is
 much cleaner.

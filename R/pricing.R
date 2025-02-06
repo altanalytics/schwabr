@@ -2,7 +2,7 @@
 #'
 #' Enter tickers for real time or delayed quotes returned as a list
 #'
-#' Quotes may be delayed depending on agreement with TD Ameritrade. If the
+#' Quotes may be delayed depending on agreement with Schwab. If the
 #' account is set up for real-time quotes then this will return real-time.
 #' Otherwise the quotes will be delayed.
 #'
@@ -59,7 +59,7 @@ schwab_priceQuote = function(tickers = c('AAPL','MSFT'), output = 'df', accessTo
 #' Prices are adjusted for splits but not dividends.
 #'
 #' PLEASE NOTE: Large data requests will take time to pull back because of the
-#' looping nature. TD Does not allow bulk ticker request, so this is simply
+#' looping nature. Schwab Does not allow bulk ticker request, so this is simply
 #' running each ticker individually. For faster and better historical data
 #' pulls, try Tiingo or FMP Cloud
 #'
@@ -204,14 +204,14 @@ schwab_quote_list = function(tickers = c('AAPL','SPY'), accessTokenList=NULL, in
 # ----------- Helper function
 # get quotes as a tibble
 schwab_quote_df = function(tickers = c('AAPL','SPY'),accessTokenList=NULL) {
-
+  quote.tradeTime  <- NULL
   # Get list of quotes
   quoteList = schwab_quote_list(tickers,accessTokenList)
 
   # Return data frame from list
   dplyr::bind_rows(lapply(quoteList,data.frame)) %>%
     dplyr::as_tibble() %>%
-    mutate(quote_datetime = as_datetime(quote.tradeTime/1000, tz='America/New_York'))
+    dplyr::mutate(quote_datetime = lubridate::as_datetime(quote.tradeTime/1000, tz='America/New_York'))
 
 }
 

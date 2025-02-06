@@ -116,8 +116,8 @@ schwab_orderSearch = function(account_number, startDate = Sys.Date()-30, endDate
 
   # Bind variables to quiet warning
   account_number_hash = schwab_act_hash(account_number, accessTokenList)
-  accountId <- orderId <- instrument.symbol <- instruction <- total_qty <- NULL
-  quantity <- duration <- orderType <- instrument.cusip <- enteredTime <- NULL
+  accountNumber <- orderId <- instrument.symbol <- instruction <- total_qty <- NULL
+  filledQuantity <- quantity <- duration <- orderType <- instrument.cusip <- enteredTime <- NULL
 
   # Get access token from options if one is not passed
   accessToken = schwab_accessToken(accessTokenList)
@@ -187,7 +187,8 @@ schwab_orderSearch = function(account_number, startDate = Sys.Date()-30, endDate
 #' A valid account and access token must be passed. An access token will be
 #' passed by default when \code{\link{schwab_auth3_accessToken}} is executed
 #' successfully and the token has not expired, which occurs after 30 minutes.
-#' Only equities and options can be traded at this time. This function is built
+#' Only simple orders using  equities and options can be traded at
+#' through this function at this time. This function is built
 #' to allow a single trade submission. More complex trades can be executed
 #' through the API, but a custom function or submission will need to be
 #' constructed. To build more custom trading strategies, reference the

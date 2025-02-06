@@ -9,7 +9,7 @@ schwab_auth1_loginURL(appKey, callbackURL)
 \arguments{
 \item{appKey}{Schwab generated App Key for the registered app.}
 
-\item{callbackURL}{User generated Callback URL for the registered app}
+\item{callbackURL}{Users Callback URL for the registered app}
 }
 \value{
 login url to grant app permission to Schwab accounts
@@ -27,7 +27,8 @@ register an application. An App will have a key and secret provided.
 The Key/Secret is auto generated and can be found under
 Dashboard > View Details at the bottom. The user must also create a Callback URL.
 The Callback URL must be a valid URL. The example below assumes the Callback
-URL is https://127.0.0.1
+URL is https://127.0.0.1. The Application should be in a "Ready to Use"
+state before attempting to login.
 
 
 This function will use these inputs to generate a URL where the user can
@@ -41,9 +42,11 @@ Docs} or see the examples in the Schwabr readme.
 \examples{
 \dontrun{
 
-# Visit the URL generated from the function below to log in to see available accounts
-# Once a successful log in is completed the landing page will be a blank page
-# The full URL of the landing page is the Authorization Code for schwab_auth2_refreshToken
+# Visit the URL generated from the function below to log in accept terms and
+# select the accounts you wish ti grant permissions to.
+# The full URL of the final page is the Authorization Code for
+# schwab_auth2_refreshToken. This page will likely be blank unless you used
+# a different callback url.
 
 # This assumes you set the callback to 'https://127.0.0.1'
 loginURL = schwab_auth1_loginURL(appKey, 'https://127.0.0.1')

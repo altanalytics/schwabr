@@ -1,9 +1,9 @@
-#' Get account balances positions, and orders returned as a list
+#' Get account balances, positions, and account numbers returned as a list
 #'
 #' Retrieves account data for all accounts linked to the Access Token or a specific account
 #'
 #' The output will be either a list of three data frames or a list of three
-#' lists that contain balances, positions, and orders for Schwab accounts
+#' lists that contain balances, positions, and account numbers for Schwab accounts
 #' linked to the access token or specified. For historical orders, see
 #' \code{\link{schwab_orderSearch}}. The default is for a data frame output which is
 #' much cleaner.
@@ -12,6 +12,8 @@
 #'   positions, and orders. Otherwise the data will be returned as a list of
 #'   lists
 #' @param account_number The account number as shown on Schwab
+#' @param value_pull Can be one of 'all','bal','pos','acts' depending on what you
+#' want to pull back
 #' @param accessTokenList A valid Access Token must be set using the output from
 #'   \code{\link{schwab_auth3_accessToken}}. The most recent Access Token will be
 #'   used by default unless one is manually passed into the function.
@@ -37,6 +39,9 @@ schwab_accountData = function(output = 'df', account_number = '',
                               value_pull = c('all','bal','pos','acts'), accessTokenList = NULL) {
 
   account_number_hash = schwab_act_hash(account_number, accessTokenList)
+  if(account_number_hash=='invalid'){
+    return(list())
+  }
   if (missing(value_pull)) value_pull='all'
   value_pull = tolower(value_pull)
   # Use helper functions to generate a lists or data frames
@@ -130,7 +135,7 @@ schwab_act_hash = function(account_number = '', accessTokenList = NULL){
   # Get access token from options if one is not passed
   accessToken = schwab_accessToken(accessTokenList)
 
-  # Create URL specific to TD Brokerage Account and dataType
+  # Create URL specific to Brokerage Account and dataType
   actURL = paste0('https://api.schwabapi.com/trader/v1/accounts/accountNumbers')
 
   # Get account data using a valid accessToken
@@ -140,6 +145,9 @@ schwab_act_hash = function(account_number = '', accessTokenList = NULL){
   ret_val = httr::content(accountData)
   ret_val <- Filter(function(x) x$accountNumber == account_number, ret_val)
 
+  if(length(ret_val)==0){
+    return('invalid')
+  }
   return(ret_val[[1]]$hashValue)
 }
 
@@ -169,7 +177,7 @@ schwab_actDataList = function(dataType=c('balances','positions','accountNumbers'
                        'positions'=paste0(account_number_hash,'?fields=positions'),
                        'accountNumbers'='accountNumbers')
 
-  # Create URL specific to TD Brokerage Account and dataType
+  # Create URL specific to Brokerage Account and dataType
   actURL = paste0('https://api.schwabapi.com/trader/v1/accounts/',dataTypeURL)
 
   # Get account data using a valid accessToken
@@ -203,7 +211,7 @@ schwab_actDataDF = function(dataType=c('balances','positions','accountNumbers'),
   actData[[1]]$securitiesAccount$positions
   if (dataType=='positions') {
       actOutput =  dplyr::bind_rows(lapply(actData, function(x) {
-        act_dets = tibble(accountNumber = x$securitiesAccount$accountNumber)
+        act_dets = dplyr::tibble(accountNumber = x$securitiesAccount$accountNumber)
         merge(act_dets,
         dplyr::bind_rows(lapply(x$securitiesAccount$positions, function(y) {
           as.data.frame(y)

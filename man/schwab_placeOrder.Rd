@@ -75,7 +75,8 @@ Place trades through the SchwabAPI using a range of parameters
 A valid account and access token must be passed. An access token will be
 passed by default when \code{\link{schwab_auth3_accessToken}} is executed
 successfully and the token has not expired, which occurs after 30 minutes.
-Only equities and options can be traded at this time. This function is built
+Only simple orders using  equities and options can be traded at
+through this function at this time. This function is built
 to allow a single trade submission. More complex trades can be executed
 through the API, but a custom function or submission will need to be
 constructed. To build more custom trading strategies, reference the

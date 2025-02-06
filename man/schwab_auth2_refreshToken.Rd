@@ -11,10 +11,10 @@ schwab_auth2_refreshToken(appKey, appSecret, callbackURL, codeToken)
 
 \item{appSecret}{Schwab generated Secret for the registered app.}
 
-\item{callbackURL}{User generated Callback URL for the registered app}
+\item{callbackURL}{Users Callback URL for the registered app}
 
 \item{codeToken}{Will be the URL at the end of Auth Step 1. Somewhere in the
-URL you should see code=CO.xxx}
+URL you should see code=CO.xxx. Paste the entire URL into the function.}
 }
 \value{
 Refresh Token that is valid for 7 days

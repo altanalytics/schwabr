@@ -7,9 +7,7 @@
 There were no ERRORs or WARNINGs. 
 
 ## Downstream dependencies
-I have installed the package on 3 separate operating
-systems (ubuntu, Mac OS X, and Windows) and found no 
-issues testing all functions. All tests are blocked 
+All tests are blocked 
 from CRAN because they require account authentication 
 to be run successfully. 
 

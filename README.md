@@ -14,15 +14,17 @@
 R package for the Charles Schwab trade API, facilitating authentication,
 trading, price requests, account balances, positions, order history,
 option chains, and more. A user will need a Schwab Brokerage account and
-Schwab developer app. They also need to be Think or Swim enabled. See
-full instructions below.
+Schwab developer app. They also need the account to be Think or Swim
+enabled. See full instructions below.
 
 *Please note: the Schwab Developer App takes a few days to be fully
-approved so start that process ASAP.*
+approved so start that process in advance of using this package*
 
 There is another and similar R CRAN package:
 [charlesschwabapi](https://cran.r-project.org/package=charlesschwabapi).
-It seems similar in terms of functionality to this package. `Schwabr`
+It seems similar in terms of functionality to this package. The biggest
+difference is in order input where this package is easier to create
+orders but also limits the user to more simple order types. `Schwabr`
 was built because most of the functionality already existed in the
 deprecated TD Ameritrade R API called
 [rameritrade](https://altanalytics.github.io/rameritrade/index.html).
@@ -32,19 +34,18 @@ deprecated TD Ameritrade R API called
 Charles Schwab is one of many trading platforms that offer a trade API.
 They ported it over from TD Ameritrade, so users of that platform should
 be familiar with much of the components here. Other platforms like
-Alpaca, TastyTrade, TradeStation, etc. may have more modern APIs, but
-they do not have the full breath and depth as a broker dealer like
-Schwab. This API does have a few limitations, obstacles:
+Alpaca, TastyTrade, TradeStation, etc. may have more modern APIs. This
+API does have a few limitations, obstacles:
 
 - A manual Authentication refresh must be made every 7 days
   - Schwab has indicated they want to update this - no timeline yet
-  - In the meantime I have a Python script to automate the Auth process
 - Setting up an App is a bit tedious
 - Auth flow is convoluted
 - No fractional shares
 
-All that said, it should give a retail user all the basic functionality
-needed to programatically manage their accounts and trading.
+All that said, the Schwab API should give a retail user all the basic
+functionality needed to programatically manage their accounts and
+trading.
 
 ### Disclosure
 
@@ -93,22 +94,23 @@ devtools::install_github("altanalytics/schwabr")
 Initial authorization to Schwab requires a 3 step authentication
 process. Once initial authorization is achieved, a refresh_token can by
 used to grant access for 7 days. After that, a manual login must be
-completed following steps 1-3. Below is a detailed summary of the entire
-process followed by code demonstrating the 3 step process. More can be
-found at the [Schwab site](https://developer.schwab.com) or the
-[Authentication
+completed following steps 1-3. To get a new refresh token. Below is a
+detailed summary of the entire process followed by code demonstrating
+the 3 step process. More can be found at the [Schwab
+site](https://developer.schwab.com) or the [Authentication
 Guide](https://developer.schwab.com/products/trader-api--individual/details/documentation/Retail%20Trader%20API%20Production).
 Details are also provided within the functions.
 
 1.  Create a login and Register an App with the individual Developer
     account with [Schwab
     Developer](https://developer.schwab.com/products/trader-api--individual).
-    This login is different than the login you use for your schwab
+    This login is different than the login you use for your Schwab
     accounts.
 2.  Create an app under Dashboard. The app serves as a middle layer
     between the brokerage account and API.
 3.  Identify the App Key and Secret provided by Schwab. These will not
-    be fully valid for a few days when the app is “Ready to use”
+    be fully valid for a few days. When the app is “Ready to use”, you
+    should be good.
 4.  Under Edit App, create a Callback URL. This can be relatively simple
     (for example: `https://127.0.0.1`).
 5.  Pass the App Key and Callback URL to `schwab_auth1_loginURL` to
@@ -117,12 +119,13 @@ Details are also provided within the functions.
     agree to terms and grant the app access to specific accounts.
 7.  When “Done” is clicked, it will redirect to a blank page or
     potentially an error page stating “This site can’t be reached”. This
-    indicates a successful log in. The URL of this page is the
-    authorization code (`https://127.0.0.1?code=AUTHORIZATIONCODE`).
-8.  Feed the App Key, Callback URL, and authorization code into
-    `schwab_auth2_refreshToken` to get a Refresh Token.
+    indicates a successful log in. The URL of this page has the
+    authorization code embedded
+    (`https://127.0.0.1?code=CO.AUTHORIZATIONCODE`).
+8.  Feed the App Key, Callback URL, and entire URL containing the Auth
+    code into `schwab_auth2_refreshToken` to get a Refresh Token.
 9.  The Refresh Token is valid for 7 days so be sure to store it
-    somewhere safe. After 7 days, you need to manually log in again
+    somewhere safe. After 7 days, you need to manually log in again.
 10. The Refresh Token is used to generate an Access Token using
     `schwab_auth3_accessToken` which gives account access for 30
     minutes.
@@ -132,7 +135,7 @@ Details are also provided within the functions.
 
 #### Terminology
 
-- Authorization Code: generated from logging into the
+- Authorization Code: generated from logging into the URL from
   `schwab_auth1_loginURL`.
 - Refresh Token: generated using the Authorization Code and is used to
   create access tokens. Refresh token is valid for 7 days.
@@ -163,8 +166,8 @@ schwab::schwab_auth1_loginURL(AppKey, callbackURL)
 
 # --------- Step 2 -----------
 # A successful log in to the URL from Step 1 will result in a blank page once "Done" is clicked. 
-# The URL of this blank page is the Authorization Code. 
-# The blank page may indicate "This site can't be reached". The URL is still a valid Authorization Code.
+# The URL of this blank page contains the Authorization Code. 
+# The blank page may indicate "This site can't be reached". The URL still contains a valid Authorization Code.
 # Feed the Authorization Code URL into schwab_auth2_refreshToken to get a Refresh Token.
 
 authCode = 'https://127.0.0.1?code=CO.AUTHORIZATIONCODE&session=ABCD' # This could be very long
@@ -180,21 +183,20 @@ saveRDS(refreshToken$refresh_token,'/secure/location/')
 # The function will return an Access Token and also store it for use as a default token in Options
 
 refreshToken = readRDS('/secure/location/')
-accessTokenList = schwab::schwab_auth_accessToken(consumerKey, refreshToken)
 accessTokenList = schwab_auth3_accessToken(appKey, appSecret, refreshToken)
-# "SSuccessful Login. Access Token has been stored and will be valid for 30 minutes"
+# "Successful Login. Access Token has been stored and will be valid for 30 minutes"
 
 # Authentication has been completed. Other functions can now be used.
 
 
 # --------- Automation -----------
-# You can use Python and Selenium to partially automate this process
+# You may be able to use Python and Selenium to partially automate this process if you are familiar with such tools.
 ```
 
 ## Get Account Data
 
 Use the `schwabr_accountData` to get current account data that includes
-balances, positions, and current day orders.
+balances, positions, and account numbers.
 
 ``` r
 library(schwabr)
@@ -243,7 +245,7 @@ library(schwabr)
 refreshToken = readRDS('/secure/location/')
 appKey = 'APP_KEY'
 appSecret = 'APP_SECRET'
-accessTokenList = schwabr::schwab_auth3_accessToken(appKey, appSecretm refreshToken)
+accessTokenList = schwabr::schwab_auth3_accessToken(appKey, appSecret, refreshToken)
 
 ### Quote data
 SP500Qt = schwabr::schwab_priceQuote(c('SPY', 'IVV', 'VOO'))

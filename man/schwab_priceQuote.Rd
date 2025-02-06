@@ -28,7 +28,7 @@ a list or data frame with quote details for each valid ticker
 Enter tickers for real time or delayed quotes returned as a list
 }
 \details{
-Quotes may be delayed depending on agreement with TD Ameritrade. If the
+Quotes may be delayed depending on agreement with Schwab. If the
 account is set up for real-time quotes then this will return real-time.
 Otherwise the quotes will be delayed.
 }

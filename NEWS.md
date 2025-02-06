@@ -9,7 +9,7 @@ Placing Orders, Canceling Orders, and pulling account details are all included
 with the initial release.
 
 Updating User Preferences and complex order entry are not included. Complex
-option chains and quotes are also not included. 
+option chains are also not included. 
 
 Disclosure: 
 This software is in no way affiliated, endorsed, or approved by Charles Schwab

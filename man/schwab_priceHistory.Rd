@@ -42,7 +42,7 @@ example, at a one minute interval, data can only be pulled for 30-35 days.
 Prices are adjusted for splits but not dividends.
 
 PLEASE NOTE: Large data requests will take time to pull back because of the
-looping nature. TD Does not allow bulk ticker request, so this is simply
+looping nature. Schwab Does not allow bulk ticker request, so this is simply
 running each ticker individually. For faster and better historical data
 pulls, try Tiingo or FMP Cloud
 }

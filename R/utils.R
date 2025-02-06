@@ -83,20 +83,20 @@ schwab_checkRefresh = function(refreshToken){
   # check if refresh token is a list
   if (!methods::is(refreshToken, "list")) {
     stop(paste0('Incorrect object type passed as Refresh Token. Please pass ',
-                'the output from auth_init_refreshToken or auth_new_refreshToken.',
+                'the output from schwab_auth3_accessToken',
                 call. = FALSE))
   }
 
   # Validate refresh token
   if (!('refresh_token' %in% names(refreshToken))) {
     stop(paste0('Incorrect object type passed as Refresh Token. Please pass ',
-                'the output from auth_init_refreshToken or auth_new_refreshToken.',
+                'the output from schwab_auth3_accessToken',
                 call. = FALSE))
   }
   # Check if Refresh Token has expired
   if (refreshToken$refreshExpire<Sys.time()) {
     stop(paste0('The Refresh Token being used has expired. Please reauthenticate ',
-                'using auth_init_refreshToken to obtain a new Refresh Token.',
+                'using schwab_auth3_accessToken to obtain a new Access Token.',
                  call. = FALSE))
   }
 }

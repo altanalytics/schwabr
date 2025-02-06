@@ -11,7 +11,8 @@
 #' The Key/Secret is auto generated and can be found under
 #' Dashboard > View Details at the bottom. The user must also create a Callback URL.
 #' The Callback URL must be a valid URL. The example below assumes the Callback
-#' URL is https://127.0.0.1
+#' URL is https://127.0.0.1. The Application should be in a "Ready to Use"
+#' state before attempting to login.
 #'
 #'
 #' This function will use these inputs to generate a URL where the user can
@@ -24,7 +25,7 @@
 #'
 #'
 #' @param appKey Schwab generated App Key for the registered app.
-#' @param callbackURL User generated Callback URL for the registered app
+#' @param callbackURL Users Callback URL for the registered app
 #'
 #' @return login url to grant app permission to Schwab accounts
 #' @export
@@ -32,9 +33,11 @@
 #' @examples
 #' \dontrun{
 #'
-#' # Visit the URL generated from the function below to log in to see available accounts
-#' # Once a successful log in is completed the landing page will be a blank page
-#' # The full URL of the landing page is the Authorization Code for schwab_auth2_refreshToken
+#' # Visit the URL generated from the function below to log in accept terms and
+#' # select the accounts you wish ti grant permissions to.
+#' # The full URL of the final page is the Authorization Code for
+#' # schwab_auth2_refreshToken. This page will likely be blank unless you used
+#' # a different callback url.
 #'
 #' # This assumes you set the callback to 'https://127.0.0.1'
 #' loginURL = schwab_auth1_loginURL(appKey, 'https://127.0.0.1')
@@ -81,10 +84,10 @@ schwab_auth1_loginURL = function(appKey, callbackURL) {
 #'
 #' @inheritParams schwab_auth1_loginURL
 #'
-#'@param appSecret Schwab generated Secret for the registered app.
+#' @param appSecret Schwab generated Secret for the registered app.
 #'
 #' @param codeToken Will be the URL at the end of Auth Step 1. Somewhere in the
-#' URL you should see code=CO.xxx
+#' URL you should see code=CO.xxx. Paste the entire URL into the function.
 #'
 #'
 #'
