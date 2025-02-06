@@ -1,6 +1,6 @@
 ## Test environments
 * local Mac OS X, R 4.4.2
-* ubuntu 20.04, R 4.0.2
+* ubuntu 22.04, R 4.0.2
 * local Windows, R 3.4.1
 
 ## R CMD check results

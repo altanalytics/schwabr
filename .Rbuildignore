@@ -4,3 +4,6 @@
 ^README\.html$
 ^cran-comments\.md$
 ^LICENSE\.md$
+^\.DS_Store$
+^\.gitignore$
+^\.git$
