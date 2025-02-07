@@ -1,7 +1,7 @@
 Package: schwabr
 Type: Package
 Title: 'Schwab' API Interface for R
-Version: 0.1.0
+Version: 0.1.1
 Author: Anthony Trevisan [aut, cre]
 Authors@R:
     person(given = "Anthony",
@@ -15,7 +15,7 @@ Description: Use R to interface with the 'Charles Schwab' Trade API <https://dev
     Functions include authentication, trading, price requests, account information, and option 
     chains. A user will need a Schwab brokerage account and Schwab Individual Developer app. See README 
     for authentication process and examples.
-License: GPL-3 + file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 

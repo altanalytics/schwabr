@@ -1,8 +1,12 @@
-# schwabr 0.1.0
+# schwabr 0.1.1
 
 ## Release Notes and News
 
-### schwabr 0.1.0 In development
+### schwabr 0.1.1 - 2/7/2025
+
+Removing License file and modifying description to match
+
+### schwabr 0.1.0 - 2/7/2025 31e05238
 
 Initial release includes basic functionality and API calls. Authentication,
 Placing Orders, Canceling Orders, and pulling account details are all included
