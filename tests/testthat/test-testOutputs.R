@@ -7,8 +7,8 @@ test_that("Function response type matches expectation", {
   library(jsonlite)
 
   #saveRDS(account_number,'/Users/tonytrevisan/Downloads/actnum.RDS')
-  account_number = readRDS('actnum.RDS')
-  accessTokenList = readRDS('actlist.RDS')
+  account_number = readRDS('~/actnum.RDS')
+  accessTokenList = readRDS('~/actlist.RDS')
   options(schwab_access_token = accessTokenList)
 
 
