@@ -7,8 +7,8 @@ Authors@R:
     person(given = "Anthony",
            family = "Trevisan",
            role = c("aut", "cre"),
-           email = "tony@altanalyticsllc.com")
-Maintainer: Anthony Trevisan <tony@altanalyticsllc.com>
+           email = "anthonytrevisan@gmail.com")
+Maintainer: Anthony Trevisan <anthonytrevisan@gmail.com>
 URL: https://altanalytics.github.io/schwabr/
 BugReports: https://github.com/altanalytics/schwabr/issues
 Description: Use R to interface with the 'Charles Schwab' Trade API <https://developer.schwab.com/>.
