@@ -21,7 +21,7 @@
 #' Authorization Code generated at the end of the log in process will feed into
 #' \code{\link{schwab_auth2_refreshToken}}. For questions, please reference the
 #' \href{https://developer.schwab.com/products/trader-api--individual/details/documentation/}{Schwab
-#' Docs} or see the examples in the schwabr readme.
+#' Docs} or see the examples in the 'schwabr' readme.
 #'
 #'
 #' @param appKey 'Schwab API' generated App Key for the registered app.
@@ -139,7 +139,7 @@ schwab_auth2_refreshToken = function(appKey, appSecret, callbackURL, codeToken) 
 #'
 #' Get a new Access Token using a valid Refresh Token
 #'
-#' An Access Token is required for the functions within schwabr It serves
+#' An Access Token is required for the functions within 'schwabr' It serves
 #' as a user login to your accounts. The token is valid for 30 minutes
 #' and allows the user to place trades, get account information, get order
 #' history, pull historical stock prices, etc. A Refresh Token is required to

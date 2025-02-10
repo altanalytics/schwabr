@@ -7,7 +7,7 @@
 ![CRAN Version](https://www.r-pkg.org/badges/version/schwabr?color=green)
 -->
 
-![Dev Version](https://img.shields.io/badge/github-0.1.1-blue.svg)
+![Dev Version](https://img.shields.io/badge/github-0.1.2-blue.svg)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/schwabr)
 <!-- badges: end -->
 

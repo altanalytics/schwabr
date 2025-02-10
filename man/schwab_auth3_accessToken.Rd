@@ -22,7 +22,7 @@ Access Token that is valid for 30 minutes. By default it is stored in
 Get a new Access Token using a valid Refresh Token
 }
 \details{
-An Access Token is required for the functions within schwabr It serves
+An Access Token is required for the functions within 'schwabr' It serves
 as a user login to your accounts. The token is valid for 30 minutes
 and allows the user to place trades, get account information, get order
 history, pull historical stock prices, etc. A Refresh Token is required to

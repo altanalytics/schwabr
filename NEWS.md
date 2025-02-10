@@ -2,13 +2,15 @@
 
 ## Release Notes and News
 
-### schwabr 0.1.2 - 2/7/2025
+### schwabr 0.1.2 - 2/10/2025
 
-Updating based on feedback from CRAN to quote APIs and software, add 
-a return in pipe, and removing print statements. It was requested to remove
-\dontrun{} but this is not possible because then all examples would fail. 
+Updating based on feedback from CRAN to quote APIs, software, and packages. 
+Schwab is not quoted because it references a company/account, but 'Schwab API'
+is quoted along with references to 'schwabr'. Added a return in pipe, and 
+removing print statements. It was requested to remove \dontrun{} but this is
+not possible because then all examples would fail. 
 
-### schwabr 0.1.1 - 2/7/2025
+### schwabr 0.1.1 - 2/7/2025 888cffa9350
 
 Removing License file and modifying description to match
 

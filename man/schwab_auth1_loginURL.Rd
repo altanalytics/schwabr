@@ -37,7 +37,7 @@ application access to the specific accounts, enabling the API. The URL
 Authorization Code generated at the end of the log in process will feed into
 \code{\link{schwab_auth2_refreshToken}}. For questions, please reference the
 \href{https://developer.schwab.com/products/trader-api--individual/details/documentation/}{Schwab
-Docs} or see the examples in the schwabr readme.
+Docs} or see the examples in the 'schwabr' readme.
 }
 \examples{
 
