@@ -13,7 +13,7 @@ schwab_transactSearch(
 )
 }
 \arguments{
-\item{account_number}{A schwab account number associated with the Access Token}
+\item{account_number}{A Schwab account number associated with the Access Token}
 
 \item{startDate}{Transactions after a certain date. Will not pull back
 transactions older than 1 year. format yyyy-mm-dd}

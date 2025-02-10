@@ -4,7 +4,7 @@
 #' ticker, executions (if applicable), account, etc.
 #'
 #' @param orderId A valid Schwab Order ID
-#' @param account_number A schwab account number associated with the Access Token
+#' @param account_number A Schwab account number associated with the Access Token
 #'
 #' @inheritParams schwab_accountData
 #'
@@ -72,9 +72,8 @@ schwab_cancelOrder =  function(orderId,account_number,accessTokenList=NULL){
   schwab_status(orderCancel,
              '. Make sure the order ID is for an open order and the account number is correct.')
 
-  # Print confirmation message and display location
-  print('Order Cancelled')
-  orderCancel$url
+
+  return(orderCancel$url)
 
 }
 
@@ -192,8 +191,8 @@ schwab_orderSearch = function(account_number, startDate = Sys.Date()-30, endDate
 #' to allow a single trade submission. More complex trades can be executed
 #' through the API, but a custom function or submission will need to be
 #' constructed. To build more custom trading strategies, reference the
-#' Schwab examples. A full list of the input parameters and details can be found
-#' in the documentation. TEST ALL ORDERS FIRST WITH SMALL DOLLAR AMOUNTS!!!
+#' 'Schwab API' examples. A full list of the input parameters and details can be
+#' found in the documentation. TEST ALL ORDERS FIRST WITH SMALL DOLLAR AMOUNTS!!!
 #'
 #' A minimum of four parameters are required for submission: ticker, instruction,
 #' quantity, and account number associated with the Access Token. The following

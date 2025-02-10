@@ -22,7 +22,7 @@ schwab_placeOrder(
 )
 }
 \arguments{
-\item{account_number}{A schwab account number associated with the Access Token}
+\item{account_number}{A Schwab account number associated with the Access Token}
 
 \item{ticker}{a valid Equity/ETF or option. If needed, use schwab_symbolDetail to
 confirm. This should be a ticker/symbol, not a CUSIP}
@@ -80,8 +80,8 @@ through this function at this time. This function is built
 to allow a single trade submission. More complex trades can be executed
 through the API, but a custom function or submission will need to be
 constructed. To build more custom trading strategies, reference the
-Schwab examples. A full list of the input parameters and details can be found
-in the documentation. TEST ALL ORDERS FIRST WITH SMALL DOLLAR AMOUNTS!!!
+'Schwab API' examples. A full list of the input parameters and details can be
+found in the documentation. TEST ALL ORDERS FIRST WITH SMALL DOLLAR AMOUNTS!!!
 
 A minimum of four parameters are required for submission: ticker, instruction,
 quantity, and account number associated with the Access Token. The following

@@ -14,7 +14,7 @@ schwab_orderSearch(
 )
 }
 \arguments{
-\item{account_number}{A schwab account number associated with the Access Token}
+\item{account_number}{A Schwab account number associated with the Access Token}
 
 \item{startDate}{Orders from a certain date with. Format yyyy-mm-dd.}
 

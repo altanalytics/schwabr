@@ -7,7 +7,7 @@
 schwab_auth1_loginURL(appKey, callbackURL)
 }
 \arguments{
-\item{appKey}{Schwab generated App Key for the registered app.}
+\item{appKey}{'Schwab API' generated App Key for the registered app.}
 
 \item{callbackURL}{Users Callback URL for the registered app}
 }
@@ -18,7 +18,7 @@ login url to grant app permission to Schwab accounts
 Create URL to grant App access to Charles Schwab accounts
 }
 \details{
-To use the Schwab API, both an account and a registered
+To use the 'Schwab API', both an account and a registered
 developer app are required. The developer app functions as a middle layer
 between the brokerage account and the API. A developer app should be
 registered on the \href{https://developer.schwab.com}{Schwab
@@ -32,24 +32,20 @@ state before attempting to login.
 
 
 This function will use these inputs to generate a URL where the user can
-log in to their standard Schwab Access Page and grant the
+log in to their standard Charles Schwab Access Page and grant the
 application access to the specific accounts, enabling the API. The URL
 Authorization Code generated at the end of the log in process will feed into
 \code{\link{schwab_auth2_refreshToken}}. For questions, please reference the
 \href{https://developer.schwab.com/products/trader-api--individual/details/documentation/}{Schwab
-Docs} or see the examples in the Schwabr readme.
+Docs} or see the examples in the schwabr readme.
 }
 \examples{
-\dontrun{
 
 # Visit the URL generated from the function below to log in accept terms and
-# select the accounts you wish ti grant permissions to.
-# The full URL of the final page is the Authorization Code for
-# schwab_auth2_refreshToken. This page will likely be blank unless you used
-# a different callback url.
+# select the accounts you want to have API permissions.
 
 # This assumes you set the callback to 'https://127.0.0.1'
+appKey = 'ALPHANUM1234KEY'
 loginURL = schwab_auth1_loginURL(appKey, 'https://127.0.0.1')
 
-}
 }

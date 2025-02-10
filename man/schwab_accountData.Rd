@@ -16,7 +16,7 @@ schwab_accountData(
 positions, and orders. Otherwise the data will be returned as a list of
 lists}
 
-\item{account_number}{The account number as shown on Schwab}
+\item{account_number}{The account number as shown on the Schwab website}
 
 \item{value_pull}{Can be one of 'all','bal','pos','acts' depending on what you
 want to pull back}

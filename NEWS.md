@@ -1,6 +1,12 @@
-# schwabr 0.1.1
+# schwabr 0.1.2
 
 ## Release Notes and News
+
+### schwabr 0.1.2 - 2/7/2025
+
+Updating based on feedback from CRAN to quote APIs and software, add 
+a return in pipe, and removing print statements. It was requested to remove
+\dontrun{} but this is not possible because then all examples would fail. 
 
 ### schwabr 0.1.1 - 2/7/2025
 

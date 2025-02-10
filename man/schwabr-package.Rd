@@ -27,7 +27,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Anthony Trevisan \email{tony@altanalyticsllc.com}
+\strong{Maintainer}: Anthony Trevisan \email{anthonytrevisan@gmail.com}
 
 }
 \keyword{internal}

@@ -9,7 +9,7 @@ schwab_orderDetail(orderId, account_number, accessTokenList = NULL)
 \arguments{
 \item{orderId}{A valid Schwab Order ID}
 
-\item{account_number}{A schwab account number associated with the Access Token}
+\item{account_number}{A Schwab account number associated with the Access Token}
 
 \item{accessTokenList}{A valid Access Token must be set using the output from
 \code{\link{schwab_auth3_accessToken}}. The most recent Access Token will be

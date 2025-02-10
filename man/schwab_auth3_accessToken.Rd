@@ -7,9 +7,9 @@
 schwab_auth3_accessToken(appKey, appSecret, refreshToken)
 }
 \arguments{
-\item{appKey}{Schwab generated App Key for the registered app.}
+\item{appKey}{'Schwab API' generated App Key for the registered app.}
 
-\item{appSecret}{Schwab generated Secret for the registered app.}
+\item{appSecret}{'Schwab API' generated Secret for the registered app.}
 
 \item{refreshToken}{An existing Refresh Token generated using
 \code{\link{schwab_auth2_refreshToken}}. Only pass the refresh_token, not the entire list}
@@ -37,7 +37,7 @@ than one log in.)
 
 
 DISCLOSURE: This software is in no way affiliated, endorsed, or approved by
-Schwab or any of its affiliates. It comes with absolutely no warranty
+Charles Schwab or any of its affiliates. It comes with absolutely no warranty
 and should not be used in actual trading unless the user can read and
 understand the source code. The functions within this package have been
 tested under basic scenarios. There may be bugs or issues that could prevent

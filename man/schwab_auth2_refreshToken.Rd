@@ -7,9 +7,9 @@
 schwab_auth2_refreshToken(appKey, appSecret, callbackURL, codeToken)
 }
 \arguments{
-\item{appKey}{Schwab generated App Key for the registered app.}
+\item{appKey}{'Schwab API' generated App Key for the registered app.}
 
-\item{appSecret}{Schwab generated Secret for the registered app.}
+\item{appSecret}{'Schwab API' generated Secret for the registered app.}
 
 \item{callbackURL}{Users Callback URL for the registered app}
 
@@ -42,8 +42,8 @@ The Refresh Token is needed to generate an Access Token using
 The Access Token expires after 30 minutes but the Refresh Token remains
 active for 7 days. You want to store your refresh token somewhere safe
 so that you can reference it later to regenerate an authorization token. After 7
-days you have to manually log in again. Schwab indicated this might change
-in the future, but no set timeline.
+days you have to manually log in again. The 'Schwab API' team indicated this might
+change in the future, but no set timeline.
 }
 \examples{
 \dontrun{

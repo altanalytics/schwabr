@@ -2,7 +2,7 @@
 #'
 #' Create URL to grant App access to Charles Schwab accounts
 #'
-#' To use the Schwab API, both an account and a registered
+#' To use the 'Schwab API', both an account and a registered
 #' developer app are required. The developer app functions as a middle layer
 #' between the brokerage account and the API. A developer app should be
 #' registered on the \href{https://developer.schwab.com}{Schwab
@@ -16,36 +16,32 @@
 #'
 #'
 #' This function will use these inputs to generate a URL where the user can
-#' log in to their standard Schwab Access Page and grant the
+#' log in to their standard Charles Schwab Access Page and grant the
 #' application access to the specific accounts, enabling the API. The URL
 #' Authorization Code generated at the end of the log in process will feed into
 #' \code{\link{schwab_auth2_refreshToken}}. For questions, please reference the
 #' \href{https://developer.schwab.com/products/trader-api--individual/details/documentation/}{Schwab
-#' Docs} or see the examples in the Schwabr readme.
+#' Docs} or see the examples in the schwabr readme.
 #'
 #'
-#' @param appKey Schwab generated App Key for the registered app.
+#' @param appKey 'Schwab API' generated App Key for the registered app.
 #' @param callbackURL Users Callback URL for the registered app
 #'
 #' @return login url to grant app permission to Schwab accounts
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #'
 #' # Visit the URL generated from the function below to log in accept terms and
-#' # select the accounts you wish ti grant permissions to.
-#' # The full URL of the final page is the Authorization Code for
-#' # schwab_auth2_refreshToken. This page will likely be blank unless you used
-#' # a different callback url.
+#' # select the accounts you want to have API permissions.
 #'
 #' # This assumes you set the callback to 'https://127.0.0.1'
+#' appKey = 'ALPHANUM1234KEY'
 #' loginURL = schwab_auth1_loginURL(appKey, 'https://127.0.0.1')
 #'
-#' }
 schwab_auth1_loginURL = function(appKey, callbackURL) {
 
-  # Generate URL specific to the registered Schwab Application
+  # Generate URL specific to the registered 'Schwab API' Application
   url = paste0('https://api.schwabapi.com/v1/oauth/authorize?client_id=',
                appKey,'&redirect_uri=',callbackURL)
 
@@ -78,13 +74,13 @@ schwab_auth1_loginURL = function(appKey, callbackURL) {
 #' The Access Token expires after 30 minutes but the Refresh Token remains
 #' active for 7 days. You want to store your refresh token somewhere safe
 #' so that you can reference it later to regenerate an authorization token. After 7
-#' days you have to manually log in again. Schwab indicated this might change
-#' in the future, but no set timeline.
+#' days you have to manually log in again. The 'Schwab API' team indicated this might
+#' change in the future, but no set timeline.
 #'
 #'
 #' @inheritParams schwab_auth1_loginURL
 #'
-#' @param appSecret Schwab generated Secret for the registered app.
+#' @param appSecret 'Schwab API' generated Secret for the registered app.
 #'
 #' @param codeToken Will be the URL at the end of Auth Step 1. Somewhere in the
 #' URL you should see code=CO.xxx. Paste the entire URL into the function.
@@ -128,7 +124,6 @@ schwab_auth2_refreshToken = function(appKey, appSecret, callbackURL, codeToken) 
                             body = authreq, encode = "form")
 
   schwab_status(authresponse)
-  print("Successful Refresh Token generated. Save the refresh_token somewhere safe")
 
   # Extract content and add expiration time to Access Token
   accessToken = httr::content(authresponse)
@@ -159,7 +154,7 @@ schwab_auth2_refreshToken = function(appKey, appSecret, callbackURL, codeToken) 
 #'
 #'
 #' DISCLOSURE: This software is in no way affiliated, endorsed, or approved by
-#' Schwab or any of its affiliates. It comes with absolutely no warranty
+#' Charles Schwab or any of its affiliates. It comes with absolutely no warranty
 #' and should not be used in actual trading unless the user can read and
 #' understand the source code. The functions within this package have been
 #' tested under basic scenarios. There may be bugs or issues that could prevent
@@ -218,7 +213,6 @@ schwab_auth3_accessToken = function(appKey, appSecret, refreshToken) {
 
   # Confirm status code of 200
   schwab_status(authresponse)
-  print("Successful Login. Access Token has been stored and will be valid for 30 minutes")
 
   # Extract content and add expiration time to Access Token
   accessToken = httr::content(authresponse)

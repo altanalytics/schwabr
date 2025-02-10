@@ -14,8 +14,8 @@ schwab_priceHistory(
 }
 \arguments{
 \item{tickers}{a vector of tickers - no more than 15 will be pulled. for
-bigger requests, split up the request or use Tiingo, FMP Cloud, or other
-free data providers}
+bigger requests, split up the request or use the 'Tiingo API', 'FMP Cloud API',
+or other free data providers}
 
 \item{startDate}{the Starting point of the data}
 
@@ -42,9 +42,9 @@ example, at a one minute interval, data can only be pulled for 30-35 days.
 Prices are adjusted for splits but not dividends.
 
 PLEASE NOTE: Large data requests will take time to pull back because of the
-looping nature. Schwab Does not allow bulk ticker request, so this is simply
-running each ticker individually. For faster and better historical data
-pulls, try Tiingo or FMP Cloud
+looping nature. The 'Schwab API' does not allow bulk ticker request, so this
+is simply running each ticker individually. For faster and better historical
+data pulls, try the 'Tiingo API' or 'FMP Cloud API'
 }
 \examples{
 \dontrun{

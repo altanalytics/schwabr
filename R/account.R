@@ -11,7 +11,7 @@
 #' @param output Use 'df' for a list of 3 data frames containing balances,
 #'   positions, and orders. Otherwise the data will be returned as a list of
 #'   lists
-#' @param account_number The account number as shown on Schwab
+#' @param account_number The account number as shown on the Schwab website
 #' @param value_pull Can be one of 'all','bal','pos','acts' depending on what you
 #' want to pull back
 #' @param accessTokenList A valid Access Token must be set using the output from
