@@ -2,7 +2,7 @@
 
 ## Release Notes and News
 
-### schwabr 0.1.2 - 2/10/2025
+### schwabr 0.1.2 - 2/10/2025 b11950e31079
 
 Updating based on feedback from CRAN to quote APIs, software, and packages. 
 Schwab is not quoted because it references a company/account, but 'Schwab API'
