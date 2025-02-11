@@ -1,7 +1,7 @@
 Package: schwabr
 Type: Package
-Title: 'Schwab API' Interface for R
-Version: 0.1.2
+Title: 'Schwab API' Interface
+Version: 0.1.3
 Author: Anthony Trevisan [aut, cre]
 Authors@R:
     person(given = "Anthony",

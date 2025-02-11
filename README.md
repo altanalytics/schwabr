@@ -8,6 +8,8 @@
 -->
 
 ![Dev Version](https://img.shields.io/badge/github-0.1.2-blue.svg)
+![CRAN
+Version](https://www.r-pkg.org/badges/version/schwabr?color=green)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/schwabr)
 <!-- badges: end -->
 
@@ -81,11 +83,11 @@ You can install schwabr using:
 
 ``` r
 
-# NOT YET Available on CRAN
-# install.packages("schwabr")
+# Install from CRAN
+install.packages("schwabr")
 
-# Install development version - fixes for cronR and price history
-# install.packages("devtools")
+# Install development version
+install.packages("devtools")
 devtools::install_github("altanalytics/schwabr")
 ```
 
