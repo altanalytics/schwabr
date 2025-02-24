@@ -144,7 +144,7 @@ schwab_optionChain = function(ticker, strikes = 10, inclQuote = TRUE,
 #' @examples
 #' \dontrun{
 #'
-#' # Access Token must be set using schwab_auth_accessToken
+#' # Access Token must be set using schwab_auth3_accessToken
 #' # Transactions for the last 5 days
 #' schwab_transactSearch(account_number = 987654321,
 #'                 startDate = Sys.Date()-days(5))
@@ -196,7 +196,7 @@ schwab_transactSearch = function(account_number, startDate = Sys.Date()-30,
 #' @examples
 #' \dontrun{
 #'
-#' # Access Token must be set using schwab_auth_accessToken
+#' # Access Token must be set using schwab_auth3_accessToken
 #' # Market hours for the current date
 #' schwab_marketHours()
 #' schwab_marketHours('2020-06-24', 'OPTION')
@@ -222,6 +222,44 @@ schwab_marketHours = function(marketType = c('EQUITY','OPTION','BOND','FUTURE','
 
   # Return raw content - market hours in list form
   return(httr::content(marketHours))
+}
+
+
+#' Get User Preferences
+#'
+#' Returns a dataframe output for account preferences associated with user
+#'
+#' @inheritParams schwab_accountData
+#'
+#' @return Dataframe output of account details
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#' # Access Token must be set using schwab_auth3_accessToken
+#' # Market hours for the current date
+#' schwab_userPreferences()
+#'
+#' }
+schwab_userPreferences = function(accessTokenList = NULL){
+
+  # Get access token from options if one is not passed
+  accessToken = schwab_accessToken(accessTokenList)
+
+  # Create URL for market
+  user_pref = paste0('https://api.schwabapi.com/trader/v1/userPreference')
+
+  # Make Get Request using token
+  userPref = httr::GET(user_pref, schwab_headers(accessToken), encode='json')
+
+  # Confirm status code of 200
+  schwab_status(userPref)
+  userPref = httr::content(userPref)
+  userpref_df = dplyr::bind_rows(lapply(userPref$accounts,as.data.frame))
+
+  # Return raw content - market hours in list form
+  return(userpref_df)
 }
 
 

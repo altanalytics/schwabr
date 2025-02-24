@@ -7,8 +7,8 @@ test_that("Function response type matches expectation", {
   library(jsonlite)
 
   #saveRDS(account_number,'/Users/tonytrevisan/Downloads/actnum.RDS')
-  account_number = readRDS('~/actnum.RDS')
-  accessTokenList = readRDS('~/actlist.RDS')
+  account_number = readRDS('/Users/tonytrevisan/Downloads/actnum.RDS')
+  accessTokenList = readRDS('/Users/tonytrevisan/Downloads/actlist.RDS')
   options(schwab_access_token = accessTokenList)
 
 
@@ -67,6 +67,8 @@ test_that("Function response type matches expectation", {
                       quantity = 1,instruction='buy',duration='good_till_cancel',
                       orderType = 'stop_limit',limitPrice=round(PSLVQt$PSLV$bidPrice*.75,2),stopPrice=round(PSLVQt$PSLV$bidPrice*.8,2)))
 
+
+  print(schwab_userPreferences())
 
 })
 
