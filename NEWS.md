@@ -2,7 +2,7 @@
 
 ## Release Notes and News
 
-### schwabr 0.1.3 - 2/23/2025
+### schwabr 0.1.3 - 2/23/2025 4c1a7ceeeaa9
 
 Adding user preferences API call.
 
