@@ -30,7 +30,7 @@ trading window
 \examples{
 \dontrun{
 
-# Access Token must be set using schwab_auth_accessToken
+# Access Token must be set using schwab_auth3_accessToken
 # Market hours for the current date
 schwab_marketHours()
 schwab_marketHours('2020-06-24', 'OPTION')

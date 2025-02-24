@@ -12,15 +12,15 @@ schwab_userPreferences(accessTokenList = NULL)
 used by default unless one is manually passed into the function.}
 }
 \value{
-List output of times and if the current date is a trading day
+Dataframe output of account details
 }
 \description{
-Returns a list output for account preferences associated with user
+Returns a dataframe output for account preferences associated with user
 }
 \examples{
 \dontrun{
 
-# Access Token must be set using schwab_auth_accessToken
+# Access Token must be set using schwab_auth3_accessToken
 # Market hours for the current date
 schwab_userPreferences()
 

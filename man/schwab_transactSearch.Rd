@@ -39,7 +39,7 @@ Any activity associated with the account.
 \examples{
 \dontrun{
 
-# Access Token must be set using schwab_auth_accessToken
+# Access Token must be set using schwab_auth3_accessToken
 # Transactions for the last 5 days
 schwab_transactSearch(account_number = 987654321,
                 startDate = Sys.Date()-days(5))
