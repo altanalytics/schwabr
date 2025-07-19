@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+box-sizing: border-box;
+min-width: 200px;
+max-width: 980px;
+margin: 0 auto;
+padding: 45px;
+padding-top: 0px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<h1 id="schwabr">schwabr</h1>
+<!-- badges: start 
+![CRAN Version](https://www.r-pkg.org/badges/version/schwabr?color=green)
+-->
+
+<p><img role="img" aria-label="Dev Version" src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4NCIgaGVpZ2h0PSIyMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJnaXRodWI6IDAuMS4zIj48dGl0bGU+Z2l0aHViOiAwLjEuMzwvdGl0bGU+PGxpbmVhckdyYWRpZW50IGlkPSJzIiB4Mj0iMCIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIuMSIvPjwvbGluZWFyR3JhZGllbnQ+PGNsaXBQYXRoIGlkPSJyIj48cmVjdCB3aWR0aD0iODQiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIi8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjcikiPjxyZWN0IHdpZHRoPSI0NSIgaGVpZ2h0PSIyMCIgZmlsbD0iIzU1NSIvPjxyZWN0IHg9IjQ1IiB3aWR0aD0iMzkiIGhlaWdodD0iMjAiIGZpbGw9IiMwMDdlYzYiLz48cmVjdCB3aWR0aD0iODQiIGhlaWdodD0iMjAiIGZpbGw9InVybCgjcykiLz48L2c+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IlZlcmRhbmEsR2VuZXZhLERlamFWdSBTYW5zLHNhbnMtc2VyaWYiIHRleHQtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iIGZvbnQtc2l6ZT0iMTEwIj48dGV4dCBhcmlhLWhpZGRlbj0idHJ1ZSIgeD0iMjM1IiB5PSIxNTAiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIzNTAiPmdpdGh1YjwvdGV4dD48dGV4dCB4PSIyMzUiIHk9IjE0MCIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIGZpbGw9IiNmZmYiIHRleHRMZW5ndGg9IjM1MCI+Z2l0aHViPC90ZXh0Pjx0ZXh0IGFyaWEtaGlkZGVuPSJ0cnVlIiB4PSI2MzUiIHk9IjE1MCIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIHRleHRMZW5ndGg9IjI5MCI+MC4xLjM8L3RleHQ+PHRleHQgeD0iNjM1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiBmaWxsPSIjZmZmIiB0ZXh0TGVuZ3RoPSIyOTAiPjAuMS4zPC90ZXh0PjwvZz48L3N2Zz4=" alt="Dev Version" /> <img role="img" aria-label="CRAN Version" src="data:image/svg+xml; charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4NSIgaGVpZ2h0PSIyMCIgYXJpYS1sYWJlbD0iQ1JBTiAwLjEuMyI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJiIiB4Mj0iMCIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3Atb3BhY2l0eT0iLjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxtYXNrIGlkPSJhIj4KICAgIDxyZWN0IHdpZHRoPSI4NSIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz4KICA8L21hc2s+CiAgPGcgbWFzaz0idXJsKCNhKSI+CiAgICA8cGF0aCBmaWxsPSIjNTU1IiBkPSJNMCAwaDQzdjIwSDB6Ii8+CiAgICA8cGF0aCBmaWxsPSIjOTdDQTAwIiBkPSJNNDMgMGg2M3YyMEg0M3oiLz4KICAgIDxwYXRoIGZpbGw9InVybCgjYikiIGQ9Ik0wIDBoODV2MjBIMHoiLz4KICA8L2c+CiAgPGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsVmVyZGFuYSxHZW5ldmEsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSI+CiAgICA8dGV4dCB4PSIyMS41IiB5PSIxNSIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyI+CiAgICAgIENSQU4KICAgIDwvdGV4dD4KICAgIDx0ZXh0IHg9IjIxLjUiIHk9IjE0Ij4KICAgICAgQ1JBTgogICAgPC90ZXh0PgogICAgPHRleHQgeD0iNjMiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj4KICAgICAgMC4xLjMKICAgIDwvdGV4dD4KICAgIDx0ZXh0IHg9IjYzIiB5PSIxNCI+CiAgICAgIDAuMS4zCiAgICA8L3RleHQ+CiAgPC9nPgo8L3N2Zz4=" alt="CRAN Version" /> <img role="img" aria-label="Downloads" src="data:image/svg+xml; charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDgiIGhlaWdodD0iMjAiIGFyaWEtbGFiZWw9IkNSQU4gZG93bmxvYWRzIDExOTAiPgogIDxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDI9IjAiIHkyPSIxMDAlIj4KICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8bWFzayBpZD0iYSI+CiAgICA8cmVjdCB3aWR0aD0iMTA4IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iI2ZmZiIvPgogIDwvbWFzaz4KICA8ZyBtYXNrPSJ1cmwoI2EpIj48cGF0aCBmaWxsPSIjNTU1IiBkPSJNMCAwaDcwdjIwSDB6Ii8+CiAgICA8cGF0aCBmaWxsPSIjMDA3ZWM2IiBkPSJNNzAgMGgzOHYyMEg3MHoiLz4KICAgIDxwYXRoIGZpbGw9InVybCgjYikiIGQ9Ik0wIDBoMTA4djIwSDB6Ii8+CiAgPC9nPgogIDxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiCiAgICAgZm9udC1mYW1pbHk9IkRlamFWdSBTYW5zLFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPgogICAgPHRleHQgeD0iMzYiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj4KICAgICAgZG93bmxvYWRzCiAgICA8L3RleHQ+CiAgICA8dGV4dCB4PSIzNiIgeT0iMTQiPgogICAgICBkb3dubG9hZHMKICAgIDwvdGV4dD4KICAgIDx0ZXh0IHg9Ijg4IiB5PSIxNSIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyI+CiAgICAgIDExOTAKICAgIDwvdGV4dD4KICAgIDx0ZXh0IHg9Ijg4IiB5PSIxNCI+CiAgICAgIDExOTAKICAgIDwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="Downloads" /></p>
+<!-- badges: end -->
+
+<p>R package for the Charles Schwab trade API, facilitating
+authentication, trading, price requests, account balances, positions,
+order history, option chains, and more. A user will need a Schwab
+Brokerage account and Schwab developer app. They also need the account
+to be Think or Swim enabled. See full instructions below.</p>
+<p><em>Please note: the Schwab Developer App takes a few days to be
+fully approved so start that process in advance of using this
+package</em></p>
+<p>There is another and similar R CRAN package: <a href="https://cran.r-project.org/package=charlesschwabapi">charlesschwabapi</a>.
+It seems similar in terms of functionality to this package. The biggest
+difference is in order input where this package is easier to create
+orders but also limits the user to more simple order types.
+<code>Schwabr</code> was built because most of the functionality already
+existed in the deprecated TD Ameritrade R API called <a href="https://altanalytics.github.io/rameritrade/index.html">rameritrade</a>.</p>
+<h2 id="introduction">Introduction</h2>
+<p>Charles Schwab is one of many trading platforms that offer a trade
+API. They ported it over from TD Ameritrade, so users of that platform
+should be familiar with much of the components here. Other platforms
+like Alpaca, TastyTrade, TradeStation, etc. may have more modern APIs.
+This API does have a few limitations, obstacles:</p>
+<ul>
+<li>A manual Authentication refresh must be made every 7 days
+<ul>
+<li>Schwab has indicated they want to update this - no timeline yet</li>
+</ul></li>
+<li>Setting up an App is a bit tedious</li>
+<li>Auth flow is convoluted</li>
+<li>No fractional shares</li>
+</ul>
+<p>All that said, the Schwab API should give a retail user all the basic
+functionality needed to programatically manage their accounts and
+trading.</p>
+<h3 id="disclosure">Disclosure</h3>
+<p>This software is in no way affiliated, endorsed, or approved by
+Charles Schwab or any of its affiliates. It comes with absolutely no
+warranty and should not be used in actual trading unless the user can
+read and understand the source code. The functions within this package
+have been tested under basic scenarios. There may be bugs or issues that
+could prevent a user from executing trades or canceling trades. It is
+also possible trades could be submitted in error. The user will use this
+package at their own risk.</p>
+<p>Please heed the following warning for the
+<code>schwab_placeOrder</code> function. WARNING: TRADES THAT ARE
+SUCCESSFULLY ENTERED WILL BE SUBMITTED IMMEDIATELY THERE IS NO REVIEW
+PROCESS. THE <code>schwab_placeOrder</code> FUNCTION HAS HUNDREDS OF
+POTENTIAL COMBINATIONS AND ONLY A HANDFUL HAVE BEEN TESTED. SCHWAB HAS
+THEIR OWN ERROR HANDLING BUT IF A SUCCESSFUL COMBINATION IS ENTERED IT
+COULD BE EXECUTED IMMEDIATELY. DOUBLE CHECK ALL ENTRIES BEFORE
+SUBMITTING. IT IS STRONGLY RECOMMENDED TO TEST THE DESIRED ORDER FIRST.
+THREE POTENTIAL OPTIONS ARE:</p>
+<ol style="list-style-type: decimal">
+<li>Enter trades outside of normal market trading hours and check the
+Schwab website to ensure proper entry</li>
+<li>Use limit orders with limit prices far outside the current
+bid/ask</li>
+<li>Enter very small quantities that won’t put much capital at risk</li>
+</ol>
+<p>FOR OPTIONS 1 AND 2, BE SURE TO CANCEL ORDERS USING
+<code>schwab_cancelOrder</code> OR THROUGH THE TD WEBSITE</p>
+<h2 id="installation">Installation</h2>
+<p>You can install schwabr using:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="co"># Install from CRAN</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;schwabr&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># Install development version</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;altanalytics/schwabr&quot;</span>)</span></code></pre></div>
+<h2 id="authentication">Authentication</h2>
+<p>Initial authorization to Schwab requires a 3 step authentication
+process. Once initial authorization is achieved, a refresh_token can by
+used to grant access for 7 days. After that, a manual login must be
+completed following steps 1-3. To get a new refresh token. Below is a
+detailed summary of the entire process followed by code demonstrating
+the 3 step process. More can be found at the <a href="https://developer.schwab.com">Schwab site</a> or the <a href="https://developer.schwab.com/products/trader-api--individual/details/documentation/Retail%20Trader%20API%20Production">Authentication
+Guide</a>. Details are also provided within the functions.</p>
+<ol style="list-style-type: decimal">
+<li>Create a login and Register an App with the individual Developer
+account with <a href="https://developer.schwab.com/products/trader-api--individual">Schwab
+Developer</a>. This login is different than the login you use for your
+Schwab accounts.</li>
+<li>Create an app under Dashboard. The app serves as a middle layer
+between the brokerage account and API.</li>
+<li>Identify the App Key and Secret provided by Schwab. These will not
+be fully valid for a few days. When the app is “Ready to use”, you
+should be good.</li>
+<li>Under Edit App, create a Callback URL. This can be relatively simple
+(for example: <code>https://127.0.0.1</code>).</li>
+<li>Pass the App Key and Callback URL to
+<code>schwab_auth1_loginURL</code> to generate a URL specific to the app
+for user log in.</li>
+<li>Visit the URL in a web browser and log in to your Schwab account,
+agree to terms and grant the app access to specific accounts.</li>
+<li>When “Done” is clicked, it will redirect to a blank page or
+potentially an error page stating “This site can’t be reached”. This
+indicates a successful log in. The URL of this page has the
+authorization code embedded
+(<code>https://127.0.0.1?code=CO.AUTHORIZATIONCODE</code>).</li>
+<li>Feed the App Key, Callback URL, and entire URL containing the Auth
+code into <code>schwab_auth2_refreshToken</code> to get a Refresh
+Token.</li>
+<li>The Refresh Token is valid for 7 days so be sure to store it
+somewhere safe. After 7 days, you need to manually log in again.</li>
+<li>The Refresh Token is used to generate an Access Token using
+<code>schwab_auth3_accessToken</code> which gives account access for 30
+minutes.</li>
+<li>The most recent Access Token is stored by default into Options.
+Passing it into the functions is optional unless accessing multiple
+logins.</li>
+</ol>
+<h4 id="terminology">Terminology</h4>
+<ul>
+<li>Authorization Code: generated from logging into the URL from
+<code>schwab_auth1_loginURL</code>.</li>
+<li>Refresh Token: generated using the Authorization Code and is used to
+create access tokens. Refresh token is valid for 7 days.</li>
+<li>Access Token: generated using the Refresh Token and creates the
+connection to the API. Valid for 30 minutes.</li>
+</ul>
+<h2 id="authentication-example">Authentication Example</h2>
+<p>The <code>schwab_auth1_loginURL</code> is used to gain initial access
+to the API. Once a Refresh Token is generated using an authorization
+code, manual log in will not be required until the Refresh Token expires
+in 7 days.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># --------- Step 1 -----------</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># Register an App with Schwab Developer, create a Callback URL, and get an App Key and App Secret.</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># The callback URL can be any valid URL (for example: https://127.0.0.1).</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># Use the schwab_auth1_loginURL to generate an app specific URL. See the Schwab documentation for issues.</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>callbackURL <span class="ot">=</span> <span class="st">&#39;https://127.0.0.1&#39;</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>AppKey <span class="ot">=</span> <span class="st">&#39;APPKEY&#39;</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>schwab<span class="sc">::</span><span class="fu">schwab_auth1_loginURL</span>(AppKey, callbackURL)</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co"># &quot;https://api.schwabapi.com/v1/oauth/authorize?client_id=APPKEY&amp;redirect_uri=https://127.0.0.1&quot;</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co"># Visit the URL above to see a Schwab login screen. Log in with your Schwab account details to grant the app access. </span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co"># --------- Step 2 -----------</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co"># A successful log in to the URL from Step 1 will result in a blank page once &quot;Done&quot; is clicked. </span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co"># The URL of this blank page contains the Authorization Code. </span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co"># The blank page may indicate &quot;This site can&#39;t be reached&quot;. The URL still contains a valid Authorization Code.</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co"># Feed the Authorization Code URL into schwab_auth2_refreshToken to get a Refresh Token.</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a>authCode <span class="ot">=</span> <span class="st">&#39;https://127.0.0.1?code=CO.AUTHORIZATIONCODE&amp;session=ABCD&#39;</span> <span class="co"># This could be very long</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a>refreshToken <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_auth2_refreshToken</span>(AppKey, AppSecret, callbackURL, authCode)</span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co"># &quot;Successful Refresh Token Generated&quot;</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co"># Save the Refresh Token to a safe location so it can be retrieved as needed. It will be valid for 7 days.</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="fu">saveRDS</span>(refreshToken<span class="sc">$</span>refresh_token,<span class="st">&#39;/secure/location/&#39;</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co"># --------- Step 3 -----------</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="co"># Use the Refresh Token to get an Access Token</span></span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co"># The function will return an Access Token and also store it for use as a default token in Options</span></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a>refreshToken <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&#39;/secure/location/&#39;</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a>accessTokenList <span class="ot">=</span> <span class="fu">schwab_auth3_accessToken</span>(appKey, appSecret, refreshToken)</span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="co"># &quot;Successful Login. Access Token has been stored and will be valid for 30 minutes&quot;</span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a><span class="co"># Authentication has been completed. Other functions can now be used.</span></span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="co"># --------- Automation -----------</span></span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a><span class="co"># You may be able to use Python and Selenium to partially automate this process if you are familiar with such tools.</span></span></code></pre></div>
+<h2 id="get-account-data">Get Account Data</h2>
+<p>Use the <code>schwabr_accountData</code> to get current account data
+that includes balances, positions, and account numbers.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(schwabr)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>refreshToken <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&#39;/secure/location/&#39;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>appKey <span class="ot">=</span> <span class="st">&#39;APP_KEY&#39;</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>appSecret <span class="ot">=</span> <span class="st">&#39;APP_SECRET&#39;</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>accessTokenList <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_auth3_accessToken</span>(appKey, appSecretm refreshToken)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>actDF <span class="ot">=</span> <span class="fu">schwab_accountData</span>()</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="fu">str</span>(actDF)</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co"># List of 3</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co"># $ balances : tibble [1 × 33] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#  ..$ account_number                   : chr &quot;1234&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#  ..$ type                            : chr &quot;MARGIN&quot;</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#  ..$ roundTrips                      : int 0</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#  ..$ isDayTrader                     : logi TRUE</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#  ..$ isClosingOnlyRestricted         : logi FALSE</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#  ..$ accruedInterest                 : num 0</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#  ..$ cashBalance                     : num 0</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#  ..$ cashReceipts                    : num 0</span></span>
+<span id="cb3-20"><a href="#cb3-20" tabindex="-1"></a><span class="co">#  ..$ longOptionMarketValue           : num 0</span></span>
+<span id="cb3-21"><a href="#cb3-21" tabindex="-1"></a><span class="co">#  ..$ liquidationValue                : num 0</span></span>
+<span id="cb3-22"><a href="#cb3-22" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" tabindex="-1"></a>actList <span class="ot">=</span> <span class="fu">schwab_accountData</span>(<span class="st">&#39;list&#39;</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" tabindex="-1"></a><span class="fu">str</span>(actList)</span>
+<span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="co"># List of 3</span></span>
+<span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a><span class="co"># $ balances :List of 1</span></span>
+<span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a><span class="co">#  ..$ :List of 2</span></span>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#  .. ..$ securitiesAccount:List of 9</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#  .. .. ..$ type                   : chr &quot;MARGIN&quot;</span></span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#  .. .. ..$ account_number          : chr &quot;1234&quot;</span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#  .. .. ..$ roundTrips             : int 0</span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#  .. .. ..$ isDayTrader            : logi TRUE</span></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#  .. .. ..$ isClosingOnlyRestricted: logi FALSE</span></span></code></pre></div>
+<h2 id="get-pricing-data">Get Pricing Data</h2>
+<p>Use the <code>price</code> functions to get quotes or historical
+pricing. Quotes will be real-time if the account has access to real-time
+quotes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">library</span>(schwabr)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>refreshToken <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&#39;/secure/location/&#39;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>appKey <span class="ot">=</span> <span class="st">&#39;APP_KEY&#39;</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>appSecret <span class="ot">=</span> <span class="st">&#39;APP_SECRET&#39;</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>accessTokenList <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_auth3_accessToken</span>(appKey, appSecret, refreshToken)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="do">### Quote data</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>SP500Qt <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_priceQuote</span>(<span class="fu">c</span>(<span class="st">&#39;SPY&#39;</span>, <span class="st">&#39;IVV&#39;</span>, <span class="st">&#39;VOO&#39;</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="fu">str</span>(SP500Qt)</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co"># tibble [3 × 71] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co"># $ assetMainType                     : chr [1:3] &quot;EQUITY&quot; &quot;EQUITY&quot; &quot;EQUITY&quot;</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co"># $ assetSubType                      : chr [1:3] &quot;ETF&quot; &quot;ETF&quot; &quot;ETF&quot;</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co"># $ quoteType                         : chr [1:3] &quot;NBBO&quot; &quot;NBBO&quot; &quot;NBBO&quot;</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co"># $ realtime                          : logi [1:3] TRUE TRUE TRUE</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co"># $ ssid                              : int [1:3] 1281357639 354190790 2003991281</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co"># $ symbol                            : chr [1:3] &quot;SPY&quot; &quot;IVV&quot; &quot;VOO&quot;</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co"># Historical Data</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>SP500H <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_priceHistory</span>(<span class="fu">c</span>(<span class="fu">c</span>(<span class="st">&#39;SPY&#39;</span>,<span class="st">&#39;IVV&#39;</span>,<span class="st">&#39;VOO&#39;</span>)))</span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="fu">head</span>(SP500H)</span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co"># ticker date       date_time            open  high   low close   volume</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co"># &lt;chr&gt;  &lt;date&gt;     &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;int&gt;</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co"># 1 SPY    2024-12-26 2024-12-26 01:00:00  600.  602.  598.  601. 41338891</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co"># 2 SPY    2024-12-27 2024-12-27 01:00:00  598.  598.  591.  595. 64969310</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co"># 3 SPY    2024-12-30 2024-12-30 01:00:00  588.  592.  584.  588. 56578757</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co"># 4 SPY    2024-12-31 2024-12-31 01:00:00  590.  591.  584.  586. 57052654</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co"># 5 SPY    2025-01-02 2025-01-02 01:00:00  589.  591.  580.  585. 50203975</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="co"># 6 SPY    2025-01-03 2025-01-03 01:00:00  588.  593.  586.  592. 37888459</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="co"># Time series data</span></span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a><span class="co"># History is only available back to a certain time depending on frequency</span></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a>schwabr<span class="sc">::</span><span class="fu">schwab_priceHistory</span>(<span class="st">&#39;AAPL&#39;</span>, <span class="at">startDate =</span> <span class="fu">Sys.Date</span>()<span class="sc">-</span><span class="dv">1</span>, <span class="at">freq=</span><span class="st">&#39;5min&#39;</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a><span class="co"># A tibble: 78 × 8</span></span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a><span class="co"># ticker date       date_time            open  high   low close  volume</span></span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a><span class="co"># &lt;chr&gt;  &lt;date&gt;     &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;int&gt;</span></span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a><span class="co"># 1 AAPL   2025-01-23 2025-01-23 09:30:00  225.  226.  224.  225. 2734142</span></span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a><span class="co"># 2 AAPL   2025-01-23 2025-01-23 09:35:00  225.  226.  225.  226.  905901</span></span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a><span class="co"># 3 AAPL   2025-01-23 2025-01-23 09:40:00  226.  226.  225.  225.  739369</span></span>
+<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a><span class="co"># 4 AAPL   2025-01-23 2025-01-23 09:45:00  225.  225.  224.  225.  677993</span></span>
+<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a><span class="co"># 5 AAPL   2025-01-23 2025-01-23 09:50:00  225.  226.  225.  225.  554527</span></span>
+<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a><span class="co"># 6 AAPL   2025-01-23 2025-01-23 09:55:00  225.  226.  225.  225.  619021</span></span>
+<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a><span class="co"># 7 AAPL   2025-01-23 2025-01-23 10:00:00  225.  226.  225.  226.  689537</span></span>
+<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a><span class="co"># 8 AAPL   2025-01-23 2025-01-23 10:05:00  226.  226.  225.  226.  993476</span></span>
+<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a><span class="co"># 9 AAPL   2025-01-23 2025-01-23 10:10:00  226.  226.  226.  226.  589547</span></span>
+<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a><span class="co"># 10 AAPL   2025-01-23 2025-01-23 10:15:00  226.  227.  226.  227.  861674</span></span></code></pre></div>
+<h2 id="placing-trades">Placing Trades</h2>
+<p>Order entry offers hundreds of potential combinations. It is strongly
+recommended to submit trades outside market hours first to test the
+trade entries. You can confirm proper entry on the Schwab website before
+entering. See the <a href="https://developer.schwab.com/products/trader-api--individual/details/documentation/Retail%20Trader%20API%20Production">order
+sample guide</a> for more examples. Please note,
+<code>schwab_placeOrder</code> only allows for single order entry and
+will not support some of the complex examples in the guide.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">library</span>(schwabr)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># Set Access Token using a valid Refresh Token</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>refreshToken <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="st">&#39;/secure/location/&#39;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>appKey <span class="ot">=</span> <span class="st">&#39;APP_KEY&#39;</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>appSecret <span class="ot">=</span> <span class="st">&#39;APP_SECRET&#39;</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>accessTokenList <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_auth3_accessToken</span>(appKey, appSecretm refreshToken)</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>account_number <span class="ot">=</span> <span class="dv">1234567890</span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co"># Market Order</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>Ord0 <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_placeOrder</span>(account_number,</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>                                  <span class="at">ticker =</span> <span class="st">&#39;PSLV&#39;</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>                                  <span class="at">quantity =</span> <span class="dv">1</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>                                  <span class="at">instruction =</span> <span class="st">&#39;BUY&#39;</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>schwabr<span class="sc">::</span><span class="fu">schwab_cancelOrder</span>(Ord0<span class="sc">$</span>orderId, account_number)</span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co"># [1] &quot;Order Cancelled&quot;</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co"># Good till cancelled stop limit INCORRECT ENTRY</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>Ordr1 <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_placeOrder</span>(<span class="at">account_number =</span> account_number,</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>                                  <span class="at">ticker =</span> <span class="st">&#39;SCHB&#39;</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>                                  <span class="at">quantity =</span> <span class="dv">1</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>                                  <span class="at">instruction =</span> <span class="st">&#39;buy&#39;</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a>                                  <span class="at">duration =</span> <span class="st">&#39;good_till_cancel&#39;</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a>                                  <span class="at">orderType =</span> <span class="st">&#39;stop_limit&#39;</span>,</span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a>                                  <span class="at">limitPrice =</span> <span class="dv">50</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a>                                  <span class="at">stopPrice =</span> <span class="dv">49</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co"># Error: 400 - The stop price must be above the current ask for buy stop orders </span></span>
+<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a><span class="co">#        and below the bid for sell stop orders.</span></span>
+<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co"># Good till Cancelled Stop Limit Order correct entry</span></span>
+<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a>Ordr1 <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_placeOrder</span>(<span class="at">account_number =</span> account_number,</span>
+<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a>                                   <span class="at">ticker =</span> <span class="st">&#39;SCHB&#39;</span>,</span>
+<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a>                                   <span class="at">quantity =</span> <span class="dv">1</span>,</span>
+<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a>                                   <span class="at">instruction =</span> <span class="st">&#39;buy&#39;</span>,</span>
+<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a>                                   <span class="at">duration =</span> <span class="st">&#39;good_till_cancel&#39;</span>,</span>
+<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a>                                   <span class="at">orderType =</span> <span class="st">&#39;stop_limit&#39;</span>,</span>
+<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a>                                   <span class="at">limitPrice =</span> <span class="dv">86</span>,</span>
+<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a>                                   <span class="at">stopPrice =</span> <span class="dv">85</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a>schwabr<span class="sc">::</span><span class="fu">schwab_cancelOrder</span>(Ordr1<span class="sc">$</span>orderId, account_number)</span>
+<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co"># [1] &quot;Order Cancelled&quot;</span></span>
+<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a><span class="co"># Trailing Stop Order</span></span>
+<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a>Ordr2 <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_placeOrder</span>(<span class="at">account_number =</span> account_number,</span>
+<span id="cb5-50"><a href="#cb5-50" tabindex="-1"></a>                                   <span class="at">ticker =</span> <span class="st">&#39;SPY&#39;</span>,</span>
+<span id="cb5-51"><a href="#cb5-51" tabindex="-1"></a>                                   <span class="at">quantity =</span> <span class="dv">1</span>,</span>
+<span id="cb5-52"><a href="#cb5-52" tabindex="-1"></a>                                   <span class="at">instruction =</span> <span class="st">&#39;sell&#39;</span>,</span>
+<span id="cb5-53"><a href="#cb5-53" tabindex="-1"></a>                                   <span class="at">orderType =</span> <span class="st">&#39;trailing_stop&#39;</span>,</span>
+<span id="cb5-54"><a href="#cb5-54" tabindex="-1"></a>                                   <span class="at">stopPriceBasis =</span> <span class="st">&#39;BID&#39;</span>,</span>
+<span id="cb5-55"><a href="#cb5-55" tabindex="-1"></a>                                   <span class="at">stopPriceType =</span> <span class="st">&#39;percent&#39;</span>,</span>
+<span id="cb5-56"><a href="#cb5-56" tabindex="-1"></a>                                   <span class="at">stopPriceOffset =</span> <span class="dv">10</span>)</span>
+<span id="cb5-57"><a href="#cb5-57" tabindex="-1"></a>schwabr<span class="sc">::</span><span class="fu">schwab_cancelOrder</span>(Ordr2<span class="sc">$</span>orderId,account_number)</span>
+<span id="cb5-58"><a href="#cb5-58" tabindex="-1"></a><span class="co"># [1] &quot;Order Cancelled&quot;</span></span>
+<span id="cb5-59"><a href="#cb5-59" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" tabindex="-1"></a><span class="co"># Option Order</span></span>
+<span id="cb5-61"><a href="#cb5-61" tabindex="-1"></a>Ord3 <span class="ot">=</span> schwabr<span class="sc">::</span><span class="fu">schwab_placeOrder</span>(<span class="at">account_number =</span> account_number,</span>
+<span id="cb5-62"><a href="#cb5-62" tabindex="-1"></a>                                  <span class="at">ticker =</span> <span class="st">&#39;SLV_091820P24.5&#39;</span>,</span>
+<span id="cb5-63"><a href="#cb5-63" tabindex="-1"></a>                                  <span class="at">quantity =</span> <span class="dv">1</span>,</span>
+<span id="cb5-64"><a href="#cb5-64" tabindex="-1"></a>                                  <span class="at">instruction =</span> <span class="st">&#39;BUY_TO_OPEN&#39;</span>,</span>
+<span id="cb5-65"><a href="#cb5-65" tabindex="-1"></a>                                  <span class="at">duration =</span> <span class="st">&#39;Day&#39;</span>,</span>
+<span id="cb5-66"><a href="#cb5-66" tabindex="-1"></a>                                  <span class="at">orderType =</span> <span class="st">&#39;LIMIT&#39;</span>,</span>
+<span id="cb5-67"><a href="#cb5-67" tabindex="-1"></a>                                  <span class="at">limitPrice =</span> .<span class="dv">02</span>,</span>
+<span id="cb5-68"><a href="#cb5-68" tabindex="-1"></a>                                  <span class="at">assetType =</span> <span class="st">&#39;OPTION&#39;</span>)</span>
+<span id="cb5-69"><a href="#cb5-69" tabindex="-1"></a>schwabr<span class="sc">::</span><span class="fu">schwab_cancelOrder</span>(Ord3<span class="sc">$</span>orderId, account_number)</span>
+<span id="cb5-70"><a href="#cb5-70" tabindex="-1"></a><span class="co"># [1] &quot;Order Cancelled&quot;</span></span></code></pre></div>
+<h2 id="option-chains">Option Chains</h2>
+<p>You can pull entire option chains for individual securities.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co"># Pull all SPY chains for 6 months with 12 strikes above and below current market</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>SPY <span class="ot">=</span> <span class="fu">schwab_optionChain</span>(<span class="st">&#39;SPY&#39;</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>                     <span class="at">strikes =</span> <span class="dv">12</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>                     <span class="at">endDate =</span> <span class="fu">Sys.Date</span>() <span class="sc">+</span> <span class="dv">180</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co"># This returns a list of two data frames</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="fu">str</span>(SPY<span class="sc">$</span>underlying)</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co"># tibble [1 × 23] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co"># $ symbol           : chr &quot;SPY&quot;</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co"># $ description      : chr &quot;SPDR S&amp;P 500&quot;</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co"># $ change           : num 2.52</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co"># $ percentChange    : num 0.76</span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co"># $ close            : num 332</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co"># $ quoteTime        : num 1.6e+12</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co"># $ tradeTime        : num 1.6e+12</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co"># $ bid              : num 334</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co"># $ ask              : num 334</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co"># $ last             : num 335</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co"># $ mark             : num 334</span></span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co"># $ markChange       : num 1.53</span></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co"># $ markPercentChange: num 0.46</span></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="co"># $ bidSize          : int 300</span></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co"># $ askSize          : int 100</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co"># $ highPrice        : num 338</span></span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co"># $ lowPrice         : num 333</span></span>
+<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="co"># $ openPrice        : num 333</span></span>
+<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co"># $ totalVolume      : int 101506148</span></span>
+<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a><span class="co"># $ exchangeName     : chr &quot;PAC&quot;</span></span>
+<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a><span class="co"># $ fiftyTwoWeekHigh : num 359</span></span>
+<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a><span class="co"># $ fiftyTwoWeekLow  : num 218</span></span>
+<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a><span class="co"># $ delayed          : logi TRUE</span></span>
+<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a><span class="fu">str</span>(SPY<span class="sc">$</span>fullChain)</span>
+<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a><span class="co"># $ putCall               : chr [1:552] &quot;PUT&quot; &quot;PUT&quot; &quot;PUT&quot; &quot;PUT&quot; ...</span></span>
+<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a><span class="co"># $ symbol                : chr [1:552] &quot;SPY_093020P329&quot; &quot;SPY_093020P330&quot; &quot;SPY_093020P331&quot; &quot;SPY_093020P332&quot; ...</span></span>
+<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a><span class="co"># $ description           : chr [1:552] &quot;SPY Sep 30 2020 329 Put (Quarterly)&quot; &quot;SPY Sep 30 2020 330 Put (Quarterly)&quot; &quot;SPY Sep 30 2020 331 Put (Quarterly)&quot; &quot;SPY Sep 30 2020 332 Put (Quarterly)&quot; ...</span></span>
+<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a><span class="co"># $ exchangeName          : chr [1:552] &quot;OPR&quot; &quot;OPR&quot; &quot;OPR&quot; &quot;OPR&quot; ...</span></span>
+<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a><span class="co"># $ bid                   : num [1:552] 0 0 0.01 0.01 0.04 0.3 1.15 2.02 3.14 4.1 ...</span></span>
+<span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a><span class="co"># $ ask                   : num [1:552] 0.01 0.01 0.02 0.02 0.05 0.38 1.25 2.33 3.24 4.61 ...</span></span>
+<span id="cb6-41"><a href="#cb6-41" tabindex="-1"></a><span class="co"># $ last                  : num [1:552] 0.01 0.02 0.01 0.02 0.05 0.32 1.22 2.35 3.02 4.3 ...</span></span>
+<span id="cb6-42"><a href="#cb6-42" tabindex="-1"></a><span class="co"># $ mark                  : num [1:552] 0.01 0.01 0.02 0.02 0.05 0.34 1.2 2.17 3.19 4.36 ...</span></span>
+<span id="cb6-43"><a href="#cb6-43" tabindex="-1"></a><span class="co"># $ bidSize               : int [1:552] 0 0 6739 1457 390 40 10 10 10 15 ...</span></span>
+<span id="cb6-44"><a href="#cb6-44" tabindex="-1"></a><span class="co"># $ askSize               : int [1:552] 4927 3498 6062 3177 10 15 10 141 10 150 ...</span></span>
+<span id="cb6-45"><a href="#cb6-45" tabindex="-1"></a><span class="co"># $ bidAskSize            : chr [1:552] &quot;0X4927&quot; &quot;0X3498&quot; &quot;6739X6062&quot; &quot;1457X3177&quot; ...</span></span>
+<span id="cb6-46"><a href="#cb6-46" tabindex="-1"></a><span class="co"># $ lastSize              : int [1:552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-47"><a href="#cb6-47" tabindex="-1"></a><span class="co"># $ highPrice             : num [1:552] 0.33 0.49 0.67 1 1.4 1.93 2.58 3.2 4.1 5 ...</span></span>
+<span id="cb6-48"><a href="#cb6-48" tabindex="-1"></a><span class="co"># $ lowPrice              : num [1:552] 0.01 0.01 0.01 0.01 0.01 0.02 0.07 0.21 0.36 0.66 ...</span></span>
+<span id="cb6-49"><a href="#cb6-49" tabindex="-1"></a><span class="co"># $ openPrice             : num [1:552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-50"><a href="#cb6-50" tabindex="-1"></a><span class="co"># $ closePrice            : num [1:552] 0.61 0.81 1.08 1.4 1.8 2.28 2.85 3.51 4.25 5.06 ...</span></span>
+<span id="cb6-51"><a href="#cb6-51" tabindex="-1"></a><span class="co"># $ totalVolume           : int [1:552] 29439 60708 55127 95477 127601 162990 158762 130057 61796 36514 ...</span></span>
+<span id="cb6-52"><a href="#cb6-52" tabindex="-1"></a><span class="co"># $ tradeDate             : logi [1:552] NA NA NA NA NA NA ...</span></span>
+<span id="cb6-53"><a href="#cb6-53" tabindex="-1"></a><span class="co"># $ tradeTimeInLong       : num [1:552] 1.6e+12 1.6e+12 1.6e+12 1.6e+12 1.6e+12 ...</span></span>
+<span id="cb6-54"><a href="#cb6-54" tabindex="-1"></a><span class="co"># $ quoteTimeInLong       : num [1:552] 1.6e+12 1.6e+12 1.6e+12 1.6e+12 1.6e+12 ...</span></span>
+<span id="cb6-55"><a href="#cb6-55" tabindex="-1"></a><span class="co"># $ netChange             : num [1:552] -0.6 -0.8 -1.07 -1.38 -1.75 -1.96 -1.63 -1.16 -1.23 -0.76 ...</span></span>
+<span id="cb6-56"><a href="#cb6-56" tabindex="-1"></a><span class="co"># $ volatility            : num [1:552] 11.52 9.39 8.48 5.92 NaN ...</span></span>
+<span id="cb6-57"><a href="#cb6-57" tabindex="-1"></a><span class="co"># $ delta                 : num [1:552] -0.008 -0.009 -0.027 -0.036 NaN NaN -0.889 -0.952 -0.949 -0.88 ...</span></span>
+<span id="cb6-58"><a href="#cb6-58" tabindex="-1"></a><span class="co"># $ gamma                 : num [1:552] 0.01 0.015 0.041 0.077 NaN NaN 0.202 0.077 0.055 0.057 ...</span></span>
+<span id="cb6-59"><a href="#cb6-59" tabindex="-1"></a><span class="co"># $ theta                 : num [1:552] -0.021 -0.02 -0.046 -0.042 NaN NaN -0.102 -0.078 -0.113 -0.362 ...</span></span>
+<span id="cb6-60"><a href="#cb6-60" tabindex="-1"></a><span class="co"># $ vega                  : num [1:552] 0.004 0.004 0.011 0.014 0.045 0.07 0.033 0.017 0.018 0.035 ...</span></span>
+<span id="cb6-61"><a href="#cb6-61" tabindex="-1"></a><span class="co"># $ rho                   : num [1:552] 0 0 0 0 NaN NaN -0.008 -0.009 -0.009 -0.008 ...</span></span>
+<span id="cb6-62"><a href="#cb6-62" tabindex="-1"></a><span class="co"># $ openInterest          : int [1:552] 19356 25285 12418 10482 12659 7611 12022 3251 2734 2637 ...</span></span>
+<span id="cb6-63"><a href="#cb6-63" tabindex="-1"></a><span class="co"># $ timeValue             : num [1:552] 0.01 0.02 0.01 0.02 0.05 0.32 1.11 1.24 0.91 1.19 ...</span></span>
+<span id="cb6-64"><a href="#cb6-64" tabindex="-1"></a><span class="co"># $ theoreticalOptionValue: num [1:552] 0.005 0.005 0.015 0.015 NaN ...</span></span>
+<span id="cb6-65"><a href="#cb6-65" tabindex="-1"></a><span class="co"># $ theoreticalVolatility : num [1:552] 29 29 29 29 29 29 29 29 29 29 ...</span></span>
+<span id="cb6-66"><a href="#cb6-66" tabindex="-1"></a><span class="co"># $ optionDeliverablesList: logi [1:552] NA NA NA NA NA NA ...</span></span>
+<span id="cb6-67"><a href="#cb6-67" tabindex="-1"></a><span class="co"># $ strikePrice           : num [1:552] 329 330 331 332 333 334 335 336 337 338 ...</span></span>
+<span id="cb6-68"><a href="#cb6-68" tabindex="-1"></a><span class="co"># $ expirationDate        : num [1:552] 1.6e+12 1.6e+12 1.6e+12 1.6e+12 1.6e+12 ...</span></span>
+<span id="cb6-69"><a href="#cb6-69" tabindex="-1"></a><span class="co"># $ daysToExpiration      : int [1:552] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb6-70"><a href="#cb6-70" tabindex="-1"></a><span class="co"># $ expirationType        : chr [1:552] &quot;Q&quot; &quot;Q&quot; &quot;Q&quot; &quot;Q&quot; ...</span></span>
+<span id="cb6-71"><a href="#cb6-71" tabindex="-1"></a><span class="co"># $ lastTradingDay        : num [1:552] 1.6e+12 1.6e+12 1.6e+12 1.6e+12 1.6e+12 ...</span></span>
+<span id="cb6-72"><a href="#cb6-72" tabindex="-1"></a><span class="co"># $ multiplier            : num [1:552] 100 100 100 100 100 100 100 100 100 100 ...</span></span>
+<span id="cb6-73"><a href="#cb6-73" tabindex="-1"></a><span class="co"># $ settlementType        : chr [1:552] &quot; &quot; &quot; &quot; &quot; &quot; &quot; &quot; ...</span></span>
+<span id="cb6-74"><a href="#cb6-74" tabindex="-1"></a><span class="co"># $ deliverableNote       : chr [1:552] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...</span></span>
+<span id="cb6-75"><a href="#cb6-75" tabindex="-1"></a><span class="co"># $ isIndexOption         : logi [1:552] NA NA NA NA NA NA ...</span></span>
+<span id="cb6-76"><a href="#cb6-76" tabindex="-1"></a><span class="co"># $ percentChange         : num [1:552] -98.4 -97.5 -99.1 -98.6 -97.2 ...</span></span>
+<span id="cb6-77"><a href="#cb6-77" tabindex="-1"></a><span class="co"># $ markChange            : num [1:552] -0.61 -0.81 -1.07 -1.38 -1.75 -1.94 -1.65 -1.34 -1.06 -0.7 ...</span></span>
+<span id="cb6-78"><a href="#cb6-78" tabindex="-1"></a><span class="co"># $ markPercentChange     : num [1:552] -99.2 -99.4 -98.6 -98.9 -97.5 ...</span></span>
+<span id="cb6-79"><a href="#cb6-79" tabindex="-1"></a><span class="co"># $ nonStandard           : logi [1:552] FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
+<span id="cb6-80"><a href="#cb6-80" tabindex="-1"></a><span class="co"># $ inTheMoney            : logi [1:552] FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
+<span id="cb6-81"><a href="#cb6-81" tabindex="-1"></a><span class="co"># $ mini                  : logi [1:552] FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
+<span id="cb6-82"><a href="#cb6-82" tabindex="-1"></a><span class="co"># $ expireDate            : Date[1:552], format: &quot;2020-09-30&quot; &quot;2020-09-30&quot; &quot;2020-09-30&quot; &quot;2020-09-30&quot; ...</span></span></code></pre></div>
+
+</body>
+</html>

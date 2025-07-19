@@ -279,18 +279,18 @@ schwab_orderSearch = function(account_number, startDate = Sys.Date()-30, endDate
 #'             stopPriceOffset = 10)
 #'
 #' # Option Order with a limit price
-# quotes = schwab_optionChain(ticker = 'SPY',
-#              strikes = 5,
-#              endDate = Sys.Date() + 180)
-# sym = quotes$fullChain$symbol[1]
-# schwab_placeOrder(account_number = account_number,
-#             ticker = sym,
-#             quantity = 1,
-#             instruction = 'BUY_TO_OPEN',
-#             duration = 'Day',
-#             orderType = 'LIMIT',
-#             limitPrice = .02,
-#             assetType = 'OPTION')
+#' quotes = schwab_optionChain(ticker = 'SPY',
+#'              strikes = 5,
+#'              endDate = Sys.Date() + 180)
+#' sym = quotes$fullChain$symbol[1]
+#' schwab_placeOrder(account_number = account_number,
+#'             ticker = sym,
+#'             quantity = 1,
+#'             instruction = 'BUY_TO_OPEN',
+#'             duration = 'Day',
+#'             orderType = 'LIMIT',
+#'             limitPrice = .02,
+#'             assetType = 'OPTION')
 #'
 #' }
 schwab_placeOrder = function(account_number, ticker, quantity, instruction,
@@ -353,7 +353,125 @@ schwab_placeOrder = function(account_number, ticker, quantity, instruction,
 
 
 
+#' Replace a Specific Order based on Account and OrderID
+#'
+#' Replace trades through the SchwabAPI using a range of parameters
+#'
+#' This function will have similar inputs as \code{\link{schwab_placeOrder}}.
+#' Please see that function for more details.
+#'
+#' The replace order function requires an open orderId as an input.
+#' This function requires the same ticker and direction as the previous order.
+#' This function will generate a new orderId and cancel the old orderId.
+#'
+#'
+#' @section Warning: TRADES THAT ARE SUCCESSFULLY ENTERED WILL BE SUBMITTED
+#'   IMMEDIATELY THERE IS NO REVIEW PROCESS. THIS FUNCTION HAS HUNDREDS OF
+#'   POTENTIAL COMBINATIONS AND ONLY A HANDFUL HAVE BEEN TESTED. IT IS STRONGLY
+#'   RECOMMENDED TO TEST THE DESIRED ORDER ON A VERY SMALL QUANTITY WITH LITTLE
+#'   MONEY AT STAKE. ANOTHER OPTION IS TO USE LIMIT ORDERS FAR FROM THE CURRENT
+#'   PRICE. TD AMERITRADE HAS THEIR OWN ERROR HANDLING BUT IF A SUCCESSFUL
+#'   COMBINATION IS ENTERED IT COULD BE EXECUTED IMMEDIATELY. DOUBLE CHECK ALL
+#'   ENTRIES BEFORE SUBMITTING.
+#'
+#'
+#' @inheritParams schwab_placeOrder
+#' @param orderId The orderId of a currently open order
+#'
+#'
+#' @return the trade id, account id, and other order details
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#' # Get stored refresh token
+#' refreshToken = readRDS('/secure/location/')
+#'
+#' # generate a new access token
+#' accessTokenList = schwab_auth3_accessToken('AppKey', 'AppSecret', refreshToken)
+#'
+#' # Set Account Number
+#' account_number = 1234567890
+#'
+#' # Place order
+#' buy_order = schwab_placeOrder(account_number = account_number,
+#'                              ticker = 'SPY',
+#'                              quantity = 1,
+#'                              orderType = 'LIMIT',
+#'                              limitPrice = 500,
+#'                              instruction = 'buy')
+#'
+#' # This will generate a new order ID
+#' repl_order = schwab_replaceOrder(account_number = account_number,
+#'                                  orderId = buy_order$orderId[1],
+#'                                  ticker = 'SPY',
+#'                                  quantity = 1,
+#'                                  orderType = 'LIMIT',
+#'                                  limitPrice = 505,
+#'                                  instruction = 'buy')
+#
+# schwab_cancelOrder(repl_order$orderId[1],account_number = account_number)
+#'
+#'
+#' }
+schwab_replaceOrder = function(account_number, orderId, ticker, quantity, instruction,
+                               orderType = 'MARKET', limitPrice = NULL, stopPrice = NULL,
+                               assetType = c('EQUITY','OPTION'), session='NORMAL', duration='DAY',
+                               stopPriceBasis = NULL, stopPriceType = NULL, stopPriceOffset = NULL,
+                               accessTokenList = NULL) {
 
+  # Get access token from options if one is not passed
+  accessToken = schwab_accessToken(accessTokenList)
+  account_number_hash = schwab_act_hash(account_number, accessTokenList)
+
+  # Check symbol and asset type
+  if (missing(assetType)) assetType ='EQUITY'
+
+  # Set URL specific to account and order
+  orderURL = paste0('https://api.schwabapi.com/trader/v1/accounts/',account_number_hash,'/orders/',orderId)
+
+  # Put order details in a list
+  orderList = list(orderType = toupper(orderType),
+                   complexOrderStrategyType = 'NONE',
+                   session = toupper(session),
+                   duration = toupper(duration),
+                   price = limitPrice,
+                   stopPrice = stopPrice,
+                   orderStrategyType = 'SINGLE',
+                   stopPriceLinkBasis = toupper(stopPriceBasis),
+                   stopPriceLinkType = toupper(stopPriceType),
+                   stopPriceOffset = stopPriceOffset,
+                   orderLegCollection = list(list(
+                     instruction = toupper(instruction),
+                     # divCapGains = "REINVEST",
+                     quantity = quantity,
+                     instrument = list(
+                       symbol = ticker,
+                       assetType = assetType
+                     )
+                   ))
+  )
+
+  # Post order to TD
+  postOrder = httr::PUT(orderURL,schwab_headers(accessToken),body=orderList,encode='json')
+  # httr::content(postOrder)
+  # Confirm status code of 201
+  schwab_status(postOrder)
+
+  # Collect Order Details
+  orderDet = postOrder$headers
+  orderOutput = data.frame(
+    account_number = gsub('/orders/.*','',gsub('.*accounts/','',orderDet$location)),
+    orderId = gsub('.*orders/','',orderDet$location),
+    status_code = postOrder$status_code,
+    date = orderDet$date,
+    location = orderDet$location
+  )
+
+  # Return Order Output
+  orderOutput
+}
 
 
 
