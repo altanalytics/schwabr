@@ -2,6 +2,10 @@
 
 ## Release Notes and News
 
+### schwabr 0.1.4 - 11/3/2025
+
+Adding paramaters `range` for `schwab_optionChain`
+
 ### schwabr 0.1.3 - 2/23/2025 4c1a7ceeeaa9
 
 Adding user preferences API call.

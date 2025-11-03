@@ -6,12 +6,13 @@
 \usage{
 schwab_optionChain(
   ticker,
-  strikes = 10,
+  strikes,
   inclQuote = TRUE,
   startDate = Sys.Date() + 1,
   endDate = Sys.Date() + 360,
   contractType = c("ALL", "CALL", "PUT"),
-  accessTokenList = NULL
+  accessTokenList = NULL,
+  range = NULL
 )
 }
 \arguments{
@@ -33,6 +34,13 @@ to today). Format: yyyy-mm-dd}
 \item{accessTokenList}{A valid Access Token must be set using the output from
 \code{\link{schwab_auth3_accessToken}}. The most recent Access Token will be
 used by default unless one is manually passed into the function.}
+
+\item{range}{Also known as moneyness. Popular choices are:
+'OTM', 'ITM', 'NTM', or 'ALL'.
+CAVEAT: the 'strikes' parameter must be left out
+  otherwise the Schwab API will take the 'strikes' parameter
+  and override the range parameter
+There's also 'SAK', 'SBK', and 'SNK' for strikes above/below/near market}
 }
 \value{
 a list of 2 data frames - underlying and options chain

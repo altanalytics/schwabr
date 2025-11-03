@@ -53,6 +53,12 @@ schwab_optionExpiration = function(ticker, accessTokenList=NULL) {
 #' @param contractType can be 'ALL', 'CALL', or 'PUT'
 #' @param endDate the end date for expiration (should be greater than or equal
 #'   to today). Format: yyyy-mm-dd
+#' @param range Also known as moneyness. Popular choices are:
+#'   'OTM', 'ITM', 'NTM', or 'ALL'.
+#'   CAVEAT: the 'strikes' parameter must be left out
+#'     otherwise the Schwab API will take the 'strikes' parameter
+#'     and override the range parameter
+#'   There's also 'SAK', 'SBK', and 'SNK' for strikes above/below/near market
 #' @inheritParams schwab_accountData
 #'
 #' @return a list of 2 data frames - underlying and options chain
@@ -68,10 +74,11 @@ schwab_optionExpiration = function(ticker, accessTokenList=NULL) {
 #'              endDate = Sys.Date() + 180)
 #'
 #' }
-schwab_optionChain = function(ticker, strikes = 10, inclQuote = TRUE,
+schwab_optionChain = function(ticker, strikes, inclQuote = TRUE,
                               startDate = Sys.Date()+1,endDate = Sys.Date() + 360,
                               contractType = c('ALL','CALL','PUT'),
-                              accessTokenList = NULL) {
+                              accessTokenList = NULL,
+                              range = NULL) {
 
   # Get access token from options if one is not passed
   accessToken = schwab_accessToken(accessTokenList)
@@ -80,15 +87,18 @@ schwab_optionChain = function(ticker, strikes = 10, inclQuote = TRUE,
   daysToExpiration <- NULL
 
   if (missing(contractType)) contractType='ALL'
-
+  if (missing(range)) rangeParm="" else rangeParm=paste0('&range=',range)
+  if (missing(strikes)) strikeParm="" else strikeParm=paste0('&strikeCount=',strikes)
 
   # Create URL
   optionURL = base::paste0('https://api.schwabapi.com/marketdata/v1/chains?symbol=',ticker,
                            '&contractType=',toupper(contractType),
-                           '&strikeCount=',strikes,
+                           strikeParm,
+                           rangeParm,
                            '&includeUnderlyingQuote=',inclQuote,
                            '&fromDate=',startDate,
                            '&toDate=',endDate)
+  print(optionURL)
   options =  httr::GET(optionURL,schwab_headers(accessToken))
   # Confirm status code of 200
   schwab_status(options)
@@ -151,8 +161,8 @@ schwab_optionChain = function(ticker, strikes = 10, inclQuote = TRUE,
 #'
 #' }
 schwab_transactSearch = function(account_number, startDate = Sys.Date()-30,
-                           endDate = Sys.Date(), transType = 'TRADE',
-                           accessTokenList = NULL){
+                                 endDate = Sys.Date(), transType = 'TRADE',
+                                 accessTokenList = NULL){
 
   # Get access token from options if one is not passed
   account_number_hash = schwab_act_hash(account_number, accessTokenList)
